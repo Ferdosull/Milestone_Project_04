@@ -7,7 +7,27 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Lato';
+    font-family: 'Rubik', sans-serif;
+}
+
+.header-logo-font {
+    font-family: 'Aclonica', sans-serif;
+}
+
+.header-background-color {
+    background: rgba(255, 251, 0, 0.877)
+}
+
+.text-shadow-white {
+    text-shadow: 3px 3px 3px #e7e5e5;
+}
+
+.text-shadow-black {
+    text-shadow: 3px 3px 3px #141414;
+}
+
+.text-shadow-none {
+    text-shadow: none;
 }
 
 /* from Bulma */
@@ -19,6 +39,11 @@ body {
     width: 1.5rem;
 }
 
+.fa-dumbbell {
+    padding-left: 0.6rem;
+    font-size: 1.6rem;
+}
+
 .logo-font {
     text-transform: uppercase;
 }
@@ -28,7 +53,7 @@ body {
 }
 
 .shop-now-button {
-    background: black;
+    background: rgba(85, 173, 2, 0.863);
     color: white;
     min-width: 260px;
 }
@@ -40,11 +65,15 @@ body {
 
 .shop-now-button:hover,
 .shop-now-button:active,
-.shop-now-button:focus,
+.shop-now-button:focus {
+    background: rgba(60, 122, 1, 0.925);
+    color: white;
+}
+
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
+    background: rgb(61, 61, 61);
     color: white;
 }
 
