@@ -15,7 +15,7 @@ body {
 }
 
 .header-background-color {
-    background: rgba(255, 251, 0, 0.877)
+    background: rgba(102, 207, 4, 0.712);
 }
 
 .text-shadow-white {
@@ -24,6 +24,10 @@ body {
 
 .text-shadow-black {
     text-shadow: 3px 3px 3px #141414;
+}
+
+.text-shadow-green {
+    text-shadow: 3px 3px 4px rgba(31, 63, 1, 0.781);
 }
 
 .text-shadow-none {
@@ -53,7 +57,7 @@ body {
 }
 
 .shop-now-button {
-    background: rgba(85, 173, 2, 0.863);
+    background: rgba(102, 207, 4, 0.712);
     color: white;
     min-width: 260px;
 }
@@ -66,7 +70,7 @@ body {
 .shop-now-button:hover,
 .shop-now-button:active,
 .shop-now-button:focus {
-    background: rgba(60, 122, 1, 0.925);
+    background: rgba(59, 122, 1, 0.815);
     color: white;
 }
 
