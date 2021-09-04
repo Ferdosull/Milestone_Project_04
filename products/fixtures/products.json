@@ -1,0 +1,226 @@
+[
+  {
+    "pk": 1,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc001",
+      "name": "Mens Workout Set 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.00,
+      "category": 1,
+      "rating": 4.6,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image1.jpg"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc002",
+      "name": "Mens Workout Set 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.01,
+      "category": 1,
+      "rating": 4.6,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image2.jpg"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc003",
+      "name": "Ladies Workout Set 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.02,
+      "category": 2,
+      "rating": 4.7,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image3.jpg"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc004",
+      "name": "Ladies Workout Set 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.03,
+      "category": 2,
+      "rating": 4.2,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image4.jpg"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc005",
+      "name": "Mens Own Brand Trainers",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.04,
+      "category": 3,
+      "rating": 5,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image5.jpg"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc006",
+      "name": "Ladies Own Brand Trainers",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.05,
+      "category": 3,
+      "rating": 4.7,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image6.jpg"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc007",
+      "name": "3 Month Gym Membership",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.06,
+      "category": 4,
+      "rating": 4.4,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image7.jpg"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc008",
+      "name": "6 Month Gym Membership",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.07,
+      "category": 4,
+      "rating": 4.5,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image8.jpg"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc009",
+      "name": "12 Month Gym Membership",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.08,
+      "category": 4,
+      "rating": 4.7,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image9.jpg"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc010",
+      "name": "Meal Plan 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.09,
+      "category": 5,
+      "rating": 4.4,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image10.jpg"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc011",
+      "name": "Meal Plan 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.10,
+      "category": 5,
+      "rating": 3,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image11.jpg"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc012",
+      "name": "SFC Protein",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.11,
+      "category": 6,
+      "rating": 4.6,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image12.jpg"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc013",
+      "name": "2 For 1 Item 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.12,
+      "category": 7,
+      "rating": 4.2,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image13.jpg"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc014",
+      "name": "2 For 1 Item 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.13,
+      "category": 7,
+      "rating": 4.7,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image14.jpg"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc015",
+      "name": "Clearance Clothing Set 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.14,
+      "category": 8,
+      "rating": 4.8,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image15.jpg"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "products.product",
+    "fields": {
+      "sku": "sfc016",
+      "name": "Clearance Clothing Set 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 50.15,
+      "category": 8,
+      "rating": 4.4,
+      "image_url": "https://events.rhema.org/wp-content/uploads/2018/08/WOF_Article_CWH818-846x508.jpg",
+      "image": "image16.jpg"
+    }
+  }
+]
