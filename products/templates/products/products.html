@@ -27,11 +27,11 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 card-background-color card-border">
                                 {% if product.image %}
-                                <a href="">
+                                <a href="{% url 'product_detail' product.id %}">
                                     <img class="card-img-top img-fluid card-border-bottom" src="{{ product.image.url }}" alt="{{ product.name }}">
                                 </a>
                                 {% else %}
-                                <a href="">
+                                <a href="{% url 'product_detail' product.id %}">
                                     <img class="card-img-top img-fluid card-border-bottom" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
@@ -45,7 +45,7 @@
                                             {% if product.rating %}
                                                 <small class="text-muted"><i class="fas fa-star star-color mr-1"></i><span class="text-white small-text-shadow-black">{{ product.rating }} / 5</span></small>
                                             {% else %}
-                                                <small class="text-muted">No Rating</small>
+                                                <small class="text-muted text-white small-text-shadow-black">No Rating</small>
                                             {% endif %}
                                         </div>
                                     </div>
