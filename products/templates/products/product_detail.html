@@ -30,6 +30,13 @@
                 <div class="product-details-container mb-5 mt-md-5 card-background-color card-border">
                     <p class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top">{{ product.name }}</p>
                     <p class="lead mb-0 text-left font-weight-bold text-white small-text-shadow-black text-padding-left-right">${{ product.price }}</p>
+                    {% if product.category %}
+                        <p class="small mt-1 mb-0 small-text-shadow-black text-padding-left-right">
+                            <a class="text-muted text-white" href="{% url 'products' %}?category={{ product.category.name }}">
+                                <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                            </a>
+                        </p>
+                    {% endif %}
                     {% if product.rating %}
                         <small class="text-muted text-padding-left-right"><i class="fas fa-star star-color mr-1"></i><span class="text-white small-text-shadow-black">{{ product.rating }} / 5</span></small>
                     {% else %}
