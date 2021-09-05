@@ -17,10 +17,10 @@
                 Clothing
             </a>
             <div class="dropdown-menu border-0 text-shadow-green-muted-2" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Mens Activewear</a>
-                <a href="" class="dropdown-item">Ladies Activewear</a>
-                <a href="" class="dropdown-item">Trainers</a>
-                <a href="" class="dropdown-item">All Clothing</a>
+                <a href="{% url 'products' %}?category=clothing,mens_activewear" class="dropdown-item">Mens Activewear</a>
+                <a href="{% url 'products' %}?category=clothing,ladies_wear" class="dropdown-item">Ladies Activewear</a>
+                <a href="{% url 'products' %}?category=clothing,trainers" class="dropdown-item">Trainers</a>
+                <a href="{% url 'products' %}?category=clothing,mens_activewear,ladies_wear,trainers" class="dropdown-item">All Clothing</a>
             </div>
         </li>
 
@@ -29,10 +29,10 @@
                 Gym
             </a>
             <div class="dropdown-menu border-0 text-shadow-green-muted-2" aria-labelledby="membership-link">
-                <a href="" class="dropdown-item">Gym Membership Plans</a>
-                <a href="" class="dropdown-item">Meal Plans</a>
-                <a href="" class="dropdown-item">SFC Protein</a>
-                <a href="" class="dropdown-item">All Gym</a>
+                <a href="{% url 'products' %}?category=gym,gym_membership" class="dropdown-item">Gym Membership Plans</a>
+                <a href="{% url 'products' %}?category=gym,meal_plans" class="dropdown-item">Meal Plans</a>
+                <a href="{% url 'products' %}?category=gym,sfc_protein" class="dropdown-item">SFC Protein</a>
+                <a href="{% url 'products' %}?category=gym,gym_membership,meal_plans,sfc_protein" class="dropdown-item">All Gym</a>
             </div>
         </li>
 
@@ -41,9 +41,9 @@
                 Special Offers
             </a>
             <div class="dropdown-menu border-0 text-shadow-green-muted-2" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">2 for 1 Items</a>
-                <a href="" class="dropdown-item">Clearance</a>
-                <a href="" class="dropdown-item">All Specials</a>
+                <a href="{% url 'products' %}?category=special_offer,2_for_1" class="dropdown-item">2 for 1 Items</a>
+                <a href="{% url 'products' %}?category=special_offer,clearance" class="dropdown-item">Clearance</a>
+                <a href="{% url 'products' %}?category=special_offer,2_for_1,clearance" class="dropdown-item">All Specials</a>
             </div>
         </li>
     </ul>
