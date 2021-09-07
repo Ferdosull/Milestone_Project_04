@@ -261,6 +261,10 @@ a.category-badge > span.badge:hover {
     cursor: pointer;
 }
 
+.form-control {
+    border-radius: 0 !important;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
