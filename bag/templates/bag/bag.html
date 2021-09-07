@@ -23,7 +23,68 @@
         <div class="row">
             <div class="col">
                 {% if bag_items %}
-                    <div class="table-responsive rounded"></div>
+                    <div class="table-responsive rounded">
+                        <table class="table table-sm card-background-color">
+                            <thead class="text-white text-shadow-black">
+                                <tr>
+                                    <th scope="col"><span class="text-padding-left">Product Info</span></th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Qty</th>
+                                    <th scope="col">Subtotal</th>
+                                </tr>
+                            </thead>
+
+                            {% for item in bag_items %}
+                                <tr>
+                                    <td class="p-3 w-25">
+                                        <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0 text-white"><strong>{{ item.product.name }}</strong></p>
+                                        <p class="my-0 small text-muted text-white">SKU: {{ item.product.sku|upper }}</p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0 text-white">${{ item.product.price }}</p>
+                                    </td>
+                                    <td class="py-3 w-25">
+                                        <p class="my-0 text-white">{{ item.quantity }}</p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0 text-white">${{ item.product.price }}</p>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="5" class="pt-5 text-right text-white">
+                                    <h6><strong><span class="text-padding-right">Bag Total: ${{ total|floatformat:2 }}</span></strong></h6>
+                                    <h6><span class="text-padding-right">Delivery: ${{ delivery|floatformat:2 }}</span></h6>
+                                    <h4 class="mt-4"><strong><span class="text-padding-right">Grand Total: ${{ grand_total|floatformat:2 }}</span></strong></h4>
+                                    {% if free_delivery_delta > 0 %}
+                                        <p class="mb-1 text-danger text-padding-right">
+                                            You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                                        </p>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    <a href="{% url 'products' %}" class="btn btn-outline-teal rounded-1 btn-lg">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left small-text-shadow-black"></i>
+                                        </span>
+                                        <span class="text-uppercase small-text-shadow-black">Keep Shopping</span>
+                                    </a>
+                                    <a href="" class="btn btn-teal rounded-1 btn-lg">
+                                        <span class="text-uppercase small-text-shadow-black">Secure Checkout</span>
+                                        <span class="icon">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 {% else %}
                     <p class="lead mb-5 text-white text-shadow-black">Your bag is empty.</p>
                     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">

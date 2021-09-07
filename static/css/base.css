@@ -41,7 +41,7 @@ body {
 }
 
 .bg-grey {
-    background: #53535280;
+    background: #535352bb;
 }
 
 .text-shadow-white {
@@ -142,6 +142,11 @@ body {
     border-radius: 5px;
 }
 
+.table td, .table th {
+    border-color: rgba(7, 238, 219, 0.466) !important;
+    vertical-align: middle;
+}
+
 .badge-font-size {
     font-size: 1.0rem;
 }
@@ -149,6 +154,16 @@ body {
 .btn-black {
     background: black;
     color: white;
+}
+
+.text-primary {
+    color: rgb(8, 192, 177) !important;
+    text-shadow: 1px 1px 3px rgb(0, 8, 8) !important;
+}
+
+.text-info {
+    color: white !important;
+    text-shadow: 3px 3px 5px rgb(0, 8, 8) !important;
 }
 
 .btn-teal {
@@ -200,6 +215,10 @@ body {
 
 .star-color {
     color: #e6e60a;
+}
+
+.free-delivery-color {
+    color: #db45d4;
 }
 
 .border-black {
