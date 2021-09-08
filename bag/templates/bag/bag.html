@@ -44,12 +44,12 @@
                                         <p class="my-0 text-white"><strong>{{ item.product.name }}</strong></p>
                                         {% if item.product.has_sizes %}
                                             <p class="my-0 text-white"><strong>Size: </strong>{{ item.size|upper }}</p>
-                                        {% endif %}
-                                        {% if item.product.has_shoe_sizes %}
+                                        {% elif item.product.has_shoe_sizes %}
                                             <p class="my-0 text-white"><strong>Size: </strong>{{ item.size|upper }}</p>
-                                        {% endif %}
-                                        {% if item.product.has_protein_sizes %}
-                                            <p class="my-0 text-white"><strong>Weight: </strong>{{ item.size|upper }}</p>
+                                        {% elif item.product.has_protein_sizes %}
+                                            <p class="my-0 text-white"><strong>Size: </strong>{{ item.size|upper }}</p>
+                                        {% else %}
+                                            <p class="my-0 text-white"><strong>Size: </strong>N/A</p>
                                         {% endif %}
                                         <p class="my-0 small text-muted text-white">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
