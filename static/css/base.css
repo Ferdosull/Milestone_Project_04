@@ -142,7 +142,6 @@ body {
 
 .table td, .table th {
     border-color: rgba(7, 238, 219, 0.466) !important;
-    vertical-align: middle;
 }
 
 .badge-font-size {
@@ -255,12 +254,18 @@ a.category-badge > span.badge:hover {
     right: 10px;
 }
 
-.btt-link {
-    cursor: pointer;
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer !important;
 }
 
 .form-control {
     border-radius: 0 !important;
+}
+
+.table-sm td, .table-sm th {
+    padding: 1rem !important;
 }
 
 /* -------------------------------- Media Queries */
