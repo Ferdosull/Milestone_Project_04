@@ -48,10 +48,6 @@ def adjust_bag(request, item_id):
     size = None
     if 'product_size' in request.POST:
         size = request.POST['product_size']
-    elif 'shoe_size' in request.POST:
-        size = request.POST['shoe_size']
-    elif 'protein_size' in request.POST:
-        size = request.POST['protein_size']
     bag = request.session.get('bag', {})
 
     if size:
@@ -78,10 +74,6 @@ def remove_from_bag(request, item_id):
         size = None
         if 'product_size' in request.POST:
             size = request.POST['product_size']
-        elif 'shoe_size' in request.POST:
-            size = request.POST['shoe_size']
-        elif 'protein_size' in request.POST:
-            size = request.POST['protein_size']
         bag = request.session.get('bag', {})
 
         if size:
