@@ -54,7 +54,7 @@
                                         <p class="my-0 small text-muted text-white">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0 text-white">${{ item.product.price }}</p>
+                                        <p class="my-0 text-white">€{{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-10">
                                         <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
@@ -95,18 +95,18 @@
                                         <a class="remove-item text-light small-black-text-shadow float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0 text-white">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                        <p class="my-0 text-white">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right text-white">
-                                    <h6><strong><span class="text-padding-right">Bag Total: ${{ total|floatformat:2 }}</span></strong></h6>
-                                    <h6><span class="text-padding-right">Delivery: ${{ delivery|floatformat:2 }}</span></h6>
-                                    <h4 class="mt-4"><strong><span class="text-padding-right">Grand Total: ${{ grand_total|floatformat:2 }}</span></strong></h4>
+                                    <h6><strong><span class="text-padding-right">Bag Total: €{{ total|floatformat:2 }}</span></strong></h6>
+                                    <h6><span class="text-padding-right">Delivery: €{{ delivery|floatformat:2 }}</span></h6>
+                                    <h4 class="mt-4"><strong><span class="text-padding-right">Grand Total: €{{ grand_total|floatformat:2 }}</span></strong></h4>
                                     {% if free_delivery_delta > 0 %}
                                         <p class="mb-1 text-danger text-padding-right">
-                                            You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                                            You could get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong> more!
                                         </p>
                                     {% endif %}
                                 </td>
@@ -122,7 +122,7 @@
                                     <a href="" class="btn btn-teal rounded-1 btn-lg">
                                         <span class="text-uppercase small-text-shadow-black">Secure Checkout</span>
                                         <span class="icon">
-                                            <i class="fas fa-lock"></i>
+                                            <i class="fas fa-lock small-text-shadow-black"></i>
                                         </span>
                                     </a>
                                 </td>

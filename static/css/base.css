@@ -44,6 +44,10 @@ body {
     background: #535352bb;
 }
 
+.bg-white-transparent {
+    background: #fdfdfd8f !important;
+}
+
 .text-shadow-white {
     text-shadow: 3px 3px 3px #e7e5e5;
 }
@@ -218,6 +222,10 @@ body {
     color: #db45d4;
 }
 
+.bg-purple {
+    background-color: #db45d4;
+}
+
 .border-black {
     border: 1px solid black !important;
 }
@@ -282,15 +290,19 @@ a.category-badge > span.badge:hover {
 }
 
 .toast-capper {
-    height: 2px;
+    height: 0.8rem;
+}
+
+.toast-header {
+    background-color: rgba(255, 255, 255, 0) !important;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
     width: 0; 
     height: 0; 
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent; 
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
