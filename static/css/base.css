@@ -72,6 +72,10 @@ body {
     text-shadow: 1px 1px 2px #141414;
 }
 
+.small-text-shadow-white {
+    text-shadow: 1px 1px 2px #FFF !important;
+}
+
 .text-shadow-none {
     text-shadow: none;
 }
@@ -214,6 +218,10 @@ body {
     color: #FFF !important;
 }
 
+.text-white-norm {
+    color: #FFF;
+}
+
 .star-color {
     color: #e6e60a;
 }
@@ -274,6 +282,16 @@ a.category-badge > span.badge:hover {
 
 .table-sm td, .table-sm th {
     padding: 1rem !important;
+}
+
+.search-radius-right {
+    border-top-right-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+}
+
+.search-radius-left {
+    border-top-left-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
 }
 
 /* ------------------------------- bootstrap toasts */
