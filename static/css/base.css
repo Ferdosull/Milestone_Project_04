@@ -101,6 +101,10 @@ body {
     padding-right: 0.6rem;
 }
 
+.all-padding {
+    padding: 1rem;
+}
+
 .link-text {
     font-size: 1.2rem;
 }
@@ -309,6 +313,11 @@ a.category-badge > span.badge:hover {
     border-bottom-left-radius: 20px !important;
 }
 
+.profile-input {
+    color: #000;
+    border: 1px solid rgba(7, 238, 219, 0.500);
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
@@ -380,6 +389,14 @@ a.category-badge > span.badge:hover {
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
 }
 
 /* -------------------------------- Media Queries */
