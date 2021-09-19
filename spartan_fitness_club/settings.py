@@ -120,16 +120,13 @@ WSGI_APPLICATION = 'spartan_fitness_club.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.parse('postgres://fasjbrhjurtupe:0018c61867fd73340f9f353f19def896e502eccc02e329f7a8b51c7b5877bb45@ec2-34-249-247-7.eu-west-1.compute.amazonaws.com:5432/d15i2n3c9a89lj')
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
