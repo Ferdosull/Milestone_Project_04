@@ -42,6 +42,12 @@
                     {% else %}
                         <small class="text-muted text-white small-text-shadow-black text-padding-left-right">No Rating</small>
                     {% endif %}
+                    {% if request.user.is_superuser %}
+                        <small class="ml-3 edit-delete">
+                            <a href="{% url 'edit_product' product.id %}"><span class="text-white"> | </span><strong>Edit</strong><span class="text-white"> | </span>
+                            <a class="text-danger" href="{% url 'delete_product' product.id %}"><strong>Delete</strong><span class="text-white"> | </span></a>
+                        </small>
+                    {% endif %}
                     <p class="mt-3 text-white small-text-shadow-black text-padding-left-right text-padding-bottom">{{ product.description }}</p>
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %} <!-- Cross Site Request forgery -->

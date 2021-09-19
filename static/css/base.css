@@ -322,6 +322,10 @@ a.category-badge > span.badge:hover {
     border: 1px solid rgba(7, 238, 219, 0.500);
 }
 
+.edit-delete {
+    font-size: 0.9rem;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
