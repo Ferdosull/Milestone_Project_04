@@ -105,6 +105,10 @@ body {
     padding: 1rem;
 }
 
+.all-text-padding {
+    padding: 0.6rem;
+}
+
 .link-text {
     font-size: 1.2rem;
 }
