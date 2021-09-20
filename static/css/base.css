@@ -113,6 +113,11 @@ body {
     font-size: 1.2rem;
 }
 
+.display-product {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -507,6 +512,12 @@ a.category-badge > span.badge:hover {
     }
 }
 
+@media (max-width: 767px) {
+    .mobile-padding-top {
+        padding-top: 0.6rem;
+    }
+}
+
 @media (max-width: 1350px) {
     .minimise-logo-text {
         font-size: 1.4rem;
@@ -515,4 +526,4 @@ a.category-badge > span.badge:hover {
     .minimise-logo-icon {
         font-size: 1.2rem;
     }
-  }
+}
