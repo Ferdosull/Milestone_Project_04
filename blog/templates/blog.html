@@ -19,6 +19,13 @@
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font text-shadow-black text-white">SFC Blog</h2>
+                <ul class="text-white small-black-text-shadow">
+                {% for post in object_list %}
+                    <li>Title: {{ post.title }}</li>
+                    <li>{{ post.body }}</li>
+                    <li class="text-padding-bottom">Submitted by: {{ post.author }}</li>
+                {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
