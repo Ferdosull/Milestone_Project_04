@@ -442,6 +442,10 @@ a.category-badge > span.badge:hover {
     border-radius: 0;
 }
 
+.mr-5 {
+    margin-right: 1.6rem!important;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
