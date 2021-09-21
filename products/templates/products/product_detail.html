@@ -45,9 +45,29 @@
                     {% endif %}
                     {% if request.user.is_superuser %}
                         <small class="ml-3 edit-delete">
-                            <a href="{% url 'edit_product' product.id %}"><span class="text-white"> | </span><strong>Edit</strong><span class="text-white"> | </span>
-                            <a class="text-danger" href="{% url 'delete_product' product.id %}"><strong>Delete</strong><span class="text-white"> | </span></a>
+                            <a href="{% url 'edit_product' product.id %}"><span class="text-white"> | </span><strong>Edit</strong><span class="text-white"> | </span></a>
+                            <a class="text-danger modal-trigger" data-toggle="modal" data-target="#{{ product.sku }}"><strong>Delete</strong><span class="text-white"> | </span></a>
                         </small>
+                        <!-- Modal Structure Start -->
+                        <div class="modal fade" id="{{ product.sku }}" role="dialog">
+                            <div class="modal-dialog">
+                            <!-- Modal Content -->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Product Deletion</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Are you sure you want to delete "<strong>{{ product.name }}</strong>"?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="{% url 'delete_product' product.id %}" class="btn btn-danger">DELETE</a>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- Modal Structure End -->
                     {% endif %}
                     <p class="mt-3 text-white small-text-shadow-black text-padding-left-right text-padding-bottom">{{ product.description }}</p>
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
