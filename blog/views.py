@@ -32,7 +32,7 @@ def add_blog_post(request):
                 post.user = request.user
                 post.save()
                 messages.info(request, 'Blog added successfully!')
-                return redirect(reverse('blog', args=[post.id]))
+                return redirect(reverse('article-detail', args=[post.id]))
             else:
                 messages.error(request, 'Please check the form for errors. \
                         Blog failed to add.')
