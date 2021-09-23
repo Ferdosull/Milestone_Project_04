@@ -19,13 +19,45 @@
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font text-shadow-black text-white">SFC Blog</h2>
-                <ul class="text-white small-black-text-shadow">
-                {% for post in object_list %}
-                    <li><a href="{% url 'article-detail' post.pk %}">Title: {{ post.title }}</a></li>
-                    <li>{{ post.body }}</li>
-                    <li class="text-padding-bottom">Submitted by: {{ post.author.first_name }}</li>
+                    {% for post in object_list %}
+                    <div class="col-lg-8 offset-lg-2 text-padding-bottom">
+                        <!-- Bootstrap Card -->
+                        <div class="card-background-color card-border">
+                            <div class="row g-0">
+                                <!-- Blog image -->
+                                <div class="col-md-5 text-padding-top text-padding-bottom">
+                                    {% if post.image %}
+                                        <a href="{{ post.image.url }}">
+                                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="card-img-top img-fluid text-padding-left">
+                                        </a>
+                                    {% else %}
+                                        <a href="{{ post.image.url }}">
+                                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ post.title }}" class="card-img-top img-fluid text-padding-left">
+                                        </a>
+                                    {% endif %}
+                                </div>
+                                <!-- Blog Details -->
+                                <div class="col-md-7">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold text-white small-text-shadow-black">{{ post.title }}</p>
+                                        <p class="mt-3 text-white small-text-shadow-black">{{ post.body|slice:":120" }}..... <a class="email-text" href="{% url 'article-detail' post.pk %}">Read More!</a></p>
+                                        <div class="blog-detail-wrapper">
+                                            {% if post.alternate_submit_name %}
+                                                <p class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top">Submitted by: {{ post.alternate_submit_name }} on {{ post.date }}</p>
+                                            {% else %}
+                                                <p class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top">Submitted by: {{ post.author.first_name }} on {{ post.date }}</p>
+                                            {% endif %}
+                                        </div>
+                                        <!-- Read more button -->
+                                        <div class="read-more text-center">
+                                            <a href="{% url 'article-detail' post.pk %}" class="btn btn-teal rounded-1 text-uppercase mt-5 small-text-shadow-black">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
-                </ul>
             </div>
         </div>
     </div>
