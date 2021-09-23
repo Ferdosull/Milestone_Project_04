@@ -23,7 +23,7 @@ body {
 }
 
 .card-background-color {
-    background: rgba(77, 75, 75, 0.575);
+    background: rgba(24, 24, 24, 0.6);
 }
 
 .card-border {
@@ -109,6 +109,10 @@ body {
     padding: 0.6rem;
 }
 
+.edit-delete-padding-bottom {
+    padding-bottom: 1.2rem;
+}
+
 .link-text {
     font-size: 1.2rem;
 }
@@ -116,6 +120,10 @@ body {
 .display-product {
     margin-top: 1rem;
     margin-bottom: .5rem;
+}
+
+.blog-text-size {
+    font-size: 1.1rem !important;
 }
 
 /* from Bulma */

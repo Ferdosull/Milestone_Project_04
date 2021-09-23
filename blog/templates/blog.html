@@ -55,9 +55,36 @@
                                             {% endif %}
                                         </div>
                                         <!-- Read more button -->
-                                        <div class="read-more text-center">
-                                            <a href="{% url 'article-detail' post.pk %}" class="btn btn-teal rounded-1 text-uppercase mt-5 small-text-shadow-black">Read More</a>
+                                        <div class="read-more text-center edit-delete-padding-bottom">
+                                            <a href="{% url 'article-detail' post.pk %}" class="btn btn-teal rounded-1 text-uppercase mt-4 small-text-shadow-black">Read More</a>
                                         </div>
+                                        {% csrf_token %}
+                                        {% if request.user.is_superuser %}
+                                        <small class="edit-delete">
+                                            <a href="{% url 'edit_blog' post.id %}"><span class="text-white blog-text-size"> | </span><strong class="blog-text-size">Edit</strong><span class="text-white blog-text-size"> | </span></a>
+                                            <a class="text-danger modal-trigger blog-text-size" data-toggle="modal" data-target="#blog{{ post.id }}"><strong>Delete</strong><span class="text-white blog-text-size"> | </span></a>
+                                        </small>
+                                        {% endif %}
+                                        <!-- Modal Structure Start -->
+                                        <div class="modal fade" id="blog{{ post.id }}" role="dialog">
+                                            <div class="modal-dialog">
+                                            <!-- Modal Content -->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Blog Deletion</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Are you sure you want to delete the blog "<strong>{{ post.title }}</strong>"?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="{% url 'delete_blog' post.id %}" class="btn btn-danger">DELETE</a>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- Modal Structure End -->
                                     </div>
                                 </div>
                             </div>
