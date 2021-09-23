@@ -49,3 +49,38 @@ def add_blog_post(request):
     }
 
     return render(request, template, context)
+
+# Edit Blog Post
+@login_required
+def edit_blog(request, post_id):
+    """
+    Allow an admin user to edit a product to the store
+    """
+    if request.user.is_superuser:
+
+        post = get_object_or_404(Post, pk=post_id)
+
+        if request.method == 'POST':
+            form = PostForm(request.POST, request.FILES, instance=post)
+            if form.is_valid():
+                form.save()
+                messages.info(request, 'Blog post updated successfully!')
+                return redirect(reverse('article-detail', args=[post.id]))
+            else:
+                messages.error(request, 'Please check the form for errors. \
+                    Blog post failed to update.')
+        else:
+            form = PostForm(instance=post)
+            messages.info(request, f'Editing {post.title}')
+    else:
+        messages.error(request, 'Sorry, you do not have permission for that.')
+        return redirect(reverse('home'))
+
+    template = 'edit_blog.html'
+
+    context = {
+        'form': form,
+        'post': post,
+    }
+
+    return render(request, template, context)

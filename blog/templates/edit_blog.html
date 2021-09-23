@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4 text-white text-shadow-black">Add Blog</h2>
+                <h2 class="logo-font mb-4 text-white text-shadow-black">Edit Blog</h2>
                 <hr>
             </div>
         </div>
@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-12 col-md-6 text-padding-bottom">
                 <div class="card-background-color card-border all-text-padding text-white small-text-shadow-black">
-                    <form method="POST" action="{% url 'add_blog' %}" class="form mb-2" enctype="multipart/form-data">
+                    <form method="POST" action="{% url 'edit_blog' %}" class="form mb-2" enctype="multipart/form-data">
                         {% csrf_token %}
                         {% for field in form %}
                             {% if field.name != 'image' %}
@@ -34,7 +34,7 @@
                         {% endfor %}
                         <div class="text-right">
                             <a class="btn btn-outline-teal rounded-1 small-text-shadow-black" href="{% url 'blog' %}">Back to Blogs</a>
-                            <button class="btn btn-teal rounded-1" type="submit">Add Blog</button>
+                            <button class="btn btn-teal rounded-1" type="submit">Save & Update</button>
                         </div>
                     </form>
                 </div>
