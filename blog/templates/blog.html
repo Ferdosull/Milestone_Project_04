@@ -27,8 +27,8 @@
                                 <!-- Blog image -->
                                 <div class="col-md-5 text-padding-top text-padding-bottom">
                                     {% if post.image_url %}
-                                    <a href="{{ post.image_url.url }}" target="_blank">
-                                        <img class="card-img-top img-fluid text-padding-left" src="{{ post.image_url.url }}" alt="{{ post.title }}">
+                                    <a href="{{ post.image_url }}" target="_blank">
+                                        <img class="card-img-top img-fluid text-padding-left" src="{{ post.image_url }}" alt="{{ post.title }}">
                                     </a>
                                     {% else %}
                                         {% if post.image %}

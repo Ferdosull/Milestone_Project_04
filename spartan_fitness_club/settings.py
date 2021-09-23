@@ -120,6 +120,12 @@ WSGI_APPLICATION = 'spartan_fitness_club.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# key = os.environ.get('MP4_DATABASE_URL')
+
+# DATABASES = {
+    # 'default': dj_database_url.parse(key)
+# }
+
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))

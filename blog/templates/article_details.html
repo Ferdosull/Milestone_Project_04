@@ -17,8 +17,8 @@
                 <h3 class="d-block d-md-none text-white small-text-shadow-black display-product">{{ post.title }}</h3>
                 <div class="image-container my-5 card-background-color card-border">
                     {% if post.image_url %}
-                    <a href="{{ post.image_url.url }}" target="_blank">
-                        <img class="card-img-top img-fluid" src="{{ post.image_url.url }}" alt="{{ post.title }}">
+                    <a href="{{ post.image_url }}" target="_blank">
+                        <img class="card-img-top img-fluid" src="{{ post.image_url }}" alt="{{ post.title }}">
                     </a>
                     {% else %}
                         {% if post.image %}
