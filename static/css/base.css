@@ -40,6 +40,52 @@ body {
     border-width: 0.15rem;
 }
 
+/* ----------- Comments Styling -----------  */
+
+.card-body {
+    padding: 0.5rem;
+}
+
+.card-header {
+    padding: 0.5rem 0.5rem;
+}
+
+.card-header, .card-footer { 
+    opacity: 1
+}
+
+/* ------- Admin ---------*/
+
+.card-admin {
+    background: #383438c9;
+    border-color: rgba(9, 163, 150, 0.836);
+}
+
+.card-admin-text {
+    color: rgba(9, 163, 150, 0.836);
+}
+
+.card-admin-bottom-border {
+    border-bottom: 1px solid rgba(9, 163, 150, 0.836);
+}
+
+/* ------- User ---------*/
+
+.card-user {
+    background: #383438c9;
+    border-color: #a0339ae0;
+}
+
+.card-user-text {
+    color: #a0339ae0;
+}
+
+.card-user-bottom-border {
+    border-bottom: 1px solid #a0339ae0;;
+}
+
+/* ------- End Card Styling ---------*/
+
 .bg-grey {
     background: #535352bb;
 }

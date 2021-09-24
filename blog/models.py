@@ -35,9 +35,6 @@ class Comment(models.Model):
     the comment itself and the date/time the comment was made"
     """
 
-    class Meta:
-        ordering = ['-created_on']
-
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                                   related_name='comments')

@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 # Create your views here.
 
 
@@ -12,9 +12,41 @@ class BlogView(ListView):
     template_name = 'blog.html'
 
 
-class ArticleDetailView(DetailView):
-    model = Post
-    template_name = 'article_details.html'
+# Blog detail view
+def detail(request, post_id):
+    """
+    A view to show individual blog post, comments
+    and to allow logged in users to leave a comment.
+    """
+    post = get_object_or_404(Post, pk=post_id)
+    comments = post.comments.all()
+    new_comment = None
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid() and request.user.is_authenticated:
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.author = request.author
+            new_comment.save()
+            messages.success(request, 'Comment added successfully!')
+            return redirect(reverse('article-detail', args=[post.id]))
+        else:
+            messages.error(request, 'Please check the form for errors. \
+                Comment failed to post.')
+    else:
+        comment_form = CommentForm()
+
+    template = 'article_details.html'
+
+    context = {
+        'post': post,
+        'comments': comments,
+        'comment_form': comment_form,
+        'new_comment': new_comment,
+    }
+
+    return render(request, template, context)
 
 
 # Add blog

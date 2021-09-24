@@ -1,6 +1,6 @@
 from django import forms
 from products.widgets import CustomClearableFileInput
-from .models import Post
+from .models import Post, Comment
 
 class PostForm(forms.ModelForm):
 
@@ -15,3 +15,22 @@ class PostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+
+class CommentForm(forms.ModelForm):
+    """
+    Creating a user comment form
+    """
+
+    class Meta:
+        model = Comment
+
+        fields = (
+            'comments',
+        )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['comments'].widget.attrs[
+            'placeholder'] = 'Leave your comment here..'
+        self.fields['comments'].label = 'Comment'
