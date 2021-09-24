@@ -89,7 +89,7 @@
                                     <div class="col-12">
                                         <div class="card card-admin">
                                             <div class="card-header card-admin-bottom-border card-admin-text">
-                                                <p class="text-uppercase">{{ comment.author }}<span class="text-white text-padding-right float-right">{{ comment.created_on }}</span></p>
+                                                <p class="text-uppercase"><i class="fas fa-user-shield pr-1"></i>{{ comment.author }}<span class="text-white text-padding-right float-right">{{ comment.created_on }}</span></p>
                                             </div>
                                             <div class="card-body text-white">
                                                 <div class="">{{ comment.comments | linebreaks }}</div>
@@ -102,7 +102,7 @@
                                     <div class="col-12">
                                         <div class="card card-user">
                                             <div class="card-header card-user-bottom-border card-user-text">
-                                                <p class="text-uppercase">{{ comment.author }}<span class="text-white text-padding-right float-right">{{ comment.created_on }}</span></p>
+                                                <p class="text-uppercase"><i class="fas fa-user pr-1"></i>{{ comment.author }}<span class="text-white text-padding-right float-right">{{ comment.created_on }}</span></p>
                                             </div>
                                             <div class="card-body text-white">
                                                 <div class="">{{ comment.comments | linebreaks }}</div>
