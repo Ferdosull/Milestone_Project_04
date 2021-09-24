@@ -3,14 +3,21 @@ from django.contrib.auth.models import User
 from django.utils.timezone import datetime, now
 
 
-# Create your models here.
-
-
+# Blog post model
 class Post(models.Model):
+    """
+    This model is for blog posts which include the user,
+    the title, an image or url image, the body text, date & time it was created,
+    an alternate submission name and an email name for contact.
+    """
+
+    class Meta:
+        ordering = ['-date']
+
     title = models.CharField(max_length=255)
     date = models.DateTimeField(default=datetime.now, blank=True)
     body = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
     alternate_submit_name = models.CharField(max_length=20, null=True, blank=True)
     email = models.EmailField(('email'), null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
@@ -18,3 +25,24 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)
+
+
+# Blog Comments model
+class Comment(models.Model):
+    """
+    This is a model for creating blog comments on the actual blog posts.
+    The model includes the user making the comment, the post they are commenting on,
+    the comment itself and the date/time the comment was made"
+    """
+
+    class Meta:
+        ordering = ['-created_on']
+
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE,
+                                  related_name='comments')
+    comments = models.TextField(max_length=1000, blank=False, null=True)
+    created_on = models.DateTimeField(auto_now_add=True, blank=True)
+
+    def __str__(self):
+        return f"Comment on {self.post.title} by {self.author}"
