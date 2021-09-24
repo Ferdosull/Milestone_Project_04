@@ -2,121 +2,151 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                <h3 class="d-block d-md-none text-white small-text-shadow-black display-product">{{ post.title }}</h3>
-                <div class="image-container my-5 card-background-color card-border">
-                    {% if post.image_url %}
-                    <a href="{{ post.image_url }}" target="_blank">
-                        <img class="card-img-top img-fluid" src="{{ post.image_url }}" alt="{{ post.title }}">
-                    </a>
-                    {% else %}
-                        {% if post.image %}
-                        <a href="{{ post.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
-                        </a>
-                        {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.title }}">
-                        </a>
-                        {% endif %}
-                    {% endif %}    
-                </div>
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <h3 class="d-block d-md-none text-white small-text-shadow-black display-product">{{ post.title }}</h3>
+            <div class="image-container my-5 card-background-color card-border">
+                {% if post.image_url %}
+                <a href="{{ post.image_url }}" target="_blank">
+                    <img class="card-img-top img-fluid" src="{{ post.image_url }}" alt="{{ post.title }}">
+                </a>
+                {% else %}
+                {% if post.image %}
+                <a href="{{ post.image.url }}" target="_blank">
+                    <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.title }}">
+                </a>
+                {% endif %}
+                {% endif %}
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="product-details-container mb-5 mt-md-5 card-background-color card-border">
-                    {% if post.alternate_submit_name %}
-                        <p class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top">Submitted by: {{ post.alternate_submit_name }} on {{ post.date }}</p>
-                    {% else %}
-                        <p class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top">Submitted by: {{ post.author.first_name }} on {{ post.date }}</p>
-                    {% endif %}
-                    <p class="lead mb-0 text-left font-weight-bold text-white small-text-shadow-black text-padding-left-right mobile-padding-top">{{ post.title }}</p>
-                    <p class="mt-3 text-white small-text-shadow-black text-padding-left-right text-padding-bottom">{{ post.body }}</p>
-                    <p class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top text-padding-bottom">
-                        <a class="email-text" href="mailto:{{ post.email }}?subject={{ post.title }}&body=Please send me more information about the {{ post.title }}."><strong>{{ post.email }}</strong></a></p>
-                        {% csrf_token %}
-                        {% if request.user.is_superuser %}
-                        <small class="ml-3 edit-delete">
-                            <a href="{% url 'edit_blog' post.id %}"><span class="text-white blog-text-size"> | </span><strong class="blog-text-size">Edit</strong><span class="text-white blog-text-size"> | </span></a>
-                            <a class="text-danger modal-trigger blog-text-size" data-toggle="modal" data-target="#blog{{ post.id }}"><strong>Delete</strong><span class="text-white blog-text-size"> | </span></a>
-                        </small>
-                        <!-- Modal Structure Start -->
-                        <div class="modal fade" id="blog{{ post.id }}" role="dialog">
-                            <div class="modal-dialog">
-                            <!-- Modal Content -->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Blog Deletion</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Are you sure you want to delete the blog "<strong>{{ post.title }}</strong>"?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="{% url 'delete_blog' post.id %}" class="btn btn-danger">DELETE</a>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
-                                </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="product-details-container mb-5 mt-md-5 card-background-color card-border">
+                {% if post.alternate_submit_name %}
+                <p class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top">Submitted
+                    by: {{ post.alternate_submit_name }} on {{ post.date }}</p>
+                {% else %}
+                <p class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top">Submitted
+                    by: {{ post.author.first_name }} on {{ post.date }}</p>
+                {% endif %}
+                <p
+                    class="lead mb-0 text-left font-weight-bold text-white small-text-shadow-black text-padding-left-right mobile-padding-top">
+                    {{ post.title }}</p>
+                <p class="mt-3 text-white small-text-shadow-black text-padding-left-right text-padding-bottom">
+                    {{ post.body }}</p>
+                <p
+                    class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top text-padding-bottom">
+                    <a class="email-text"
+                        href="mailto:{{ post.email }}?subject={{ post.title }}&body=Please send me more information about the {{ post.title }}."><strong>{{ post.email }}</strong></a>
+                </p>
+                {% csrf_token %}
+                {% if request.user.is_superuser %}
+                <small class="ml-3 edit-delete">
+                    <a href="{% url 'edit_blog' post.id %}"><span class="text-white blog-text-size"> | </span><strong
+                            class="blog-text-size">Edit</strong><span class="text-white blog-text-size"> | </span></a>
+                    <a class="text-danger modal-trigger blog-text-size" data-toggle="modal"
+                        data-target="#blog{{ post.id }}"><strong>Delete</strong><span class="text-white blog-text-size">
+                            | </span></a>
+                </small>
+                <!-- Modal Structure Start -->
+                <div class="modal fade" id="blog{{ post.id }}" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal Content -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Blog Deletion</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete the blog "<strong>{{ post.title }}</strong>"?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{% url 'delete_blog' post.id %}" class="btn btn-danger">DELETE</a>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
                             </div>
                         </div>
-                        <!-- Modal Structure End -->
-                        {% endif %}
-                        <div class="col-12 text-padding-bottom">
-                            <a href="{% url 'blog' %}" class="btn btn-outline-teal rounded-1 mt-5">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left small-text-shadow-black"></i>
-                                </span>
-                                <span class="text-uppercase small-text-shadow-black">Back to Blogs</span>
-                            </a>
-                        </div>
-                        <!-- Comments -->
-                        <div>
-                            <span class="text-white small-text-shadow-black text-padding-left text-padding-top">Comment Count: {{ comments.count }}</span>
-                        </div>
-                            {% for comment in comments %}
-                            {% ifequal comment.author post.author %}
-                                <div class="row all-padding">
-                                    <div class="col-12">
-                                        <div class="card card-admin">
-                                            <div class="card-header card-admin-bottom-border card-admin-text">
-                                                <p class="text-uppercase"><i class="fas fa-user-shield pr-1"></i>{{ comment.author }}<span class="text-white text-padding-right float-right">{{ comment.created_on }}</span></p>
-                                            </div>
-                                            <div class="card-body text-white">
-                                                <div class="">{{ comment.comments | linebreaks }}</div>
-                                            </div>  
-                                        </div>
-                                    </div>
-                                </div>
-                            {% else %}
-                                <div class="row all-padding">
-                                    <div class="col-12">
-                                        <div class="card card-user">
-                                            <div class="card-header card-user-bottom-border card-user-text">
-                                                <p class="text-uppercase"><i class="fas fa-user pr-1"></i>{{ comment.author }}<span class="text-white text-padding-right float-right">{{ comment.created_on }}</span></p>
-                                            </div>
-                                            <div class="card-body text-white">
-                                                <div class="">{{ comment.comments | linebreaks }}</div>
-                                            </div>  
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endifequal %}
-                            {% endfor %}  
                     </div>
+                </div>
+                <!-- Modal Structure End -->
+                {% endif %}
+                <div class="col-12 text-padding-bottom">
+                    <a href="{% url 'blog' %}" class="btn btn-outline-teal rounded-1 mt-5">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left small-text-shadow-black"></i>
+                        </span>
+                        <span class="text-uppercase small-text-shadow-black">Back to Blogs</span>
+                    </a>
+                </div>
+                <!-- Comments -->
+                <div>
+                    <span class="text-white small-text-shadow-black text-padding-left text-padding-top">Comment Count:
+                        {{ comments.count }}</span>
+                </div>
+                {% for comment in comments %}
+                {% ifequal comment.author post.author %}
+                <div class="row all-padding">
+                    <div class="col-12">
+                        <div class="card card-admin">
+                            <div class="card-header card-admin-bottom-border card-admin-text">
+                                <p class="text-uppercase"><i
+                                        class="fas fa-user-shield pr-1"></i>{{ comment.author }}<span
+                                        class="text-white text-padding-right float-right">{{ comment.created_on }}</span>
+                                </p>
+                            </div>
+                            <div class="card-body text-white">
+                                <div class="">{{ comment.comments | linebreaks }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="row all-padding">
+                    <div class="col-12">
+                        <div class="card card-user">
+                            <div class="card-header card-user-bottom-border card-user-text">
+                                <p class="text-uppercase"><i class="fas fa-user pr-1"></i>{{ comment.author }}<span
+                                        class="text-white text-padding-right float-right">{{ comment.created_on }}</span>
+                                </p>
+                            </div>
+                            <div class="card-body text-white">
+                                <div class="">{{ comment.comments | linebreaks }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endifequal %}
+                {% endfor %}
+                <!-- Comment Form -->
+                    {% if request.user.is_anonymous %}
+                    <p class="free-delivery-color small-text-shadow-black text-padding-left text-padding-top">Please<a class="text-info" href="{% url 'account_login' %}"> Login </a> or
+                        <a class="text-info" href="{% url 'account_signup' %}">Signup</a>
+                        to leave a comment. Thank you.</p>
+                    {% else %}
+                    <form class="all-padding comment-form-class" id="comment-form" method="POST" action="">
+                        {% csrf_token %}
+                        {{ comment_form|crispy }}
+                        <button class="btn btn-teal" type="submit">Submit</button>
+                    </form>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}

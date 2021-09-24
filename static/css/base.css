@@ -86,6 +86,14 @@ body {
 
 /* ------- End Card Styling ---------*/
 
+textarea.form-control {
+    max-height: 6rem !important;
+}
+
+label {
+    color: white !important;
+}
+
 .bg-grey {
     background: #535352bb;
 }

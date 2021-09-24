@@ -32,5 +32,5 @@ class CommentForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         self.fields['comments'].widget.attrs[
-            'placeholder'] = 'Leave your comment here..'
-        self.fields['comments'].label = 'Comment'
+            'placeholder'] = 'Enter your comment here..'
+        self.fields['comments'].label = 'Leave a Comment'
