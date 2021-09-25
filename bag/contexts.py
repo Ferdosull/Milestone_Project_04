@@ -16,21 +16,31 @@ def bag_contents(request):
             product = get_object_or_404(Product, pk=item_id)
             total += item_data * product.price
             product_count += item_data
+            extras = {
+                "item1": 'meal_plans',
+                "item2": 'gym_membership'
+            }
             bag_items.append({
                 'item_id': item_id,
                 'quantity': item_data,
                 'product': product,
+                'extras' : extras,
             })
         else:
             product = get_object_or_404(Product, pk=item_id)
             for size, quantity in item_data['items_by_size'].items():
                 total += quantity * product.price
                 product_count += quantity
+                extras = {
+                    "item1": 'meal_plans',
+                    "item2": 'gym_membership'
+                }
                 bag_items.append({
                     'item_id': item_id,
                     'quantity': quantity,
                     'product': product,
                     'size': size,
+                    'extras' : extras,
                 })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:

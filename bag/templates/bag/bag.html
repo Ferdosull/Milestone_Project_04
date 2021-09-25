@@ -44,7 +44,7 @@
                                         <p class="text-white small-text-shadow-black"><strong>Subtotal: </strong>${{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </div>
                                     <div class="col-12 col-sm-6">
-                                        {% include "bag/quantity-form.html" %}
+                                        {% include "bag/quantity-form-mobile.html" %}
                                     </div>
                                 </div>
                                 <div class="row"><div class="col"><hr></div></div>
@@ -89,7 +89,13 @@
                                         <p class="my-0 text-white">€{{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-10">
-                                        {% include "bag/quantity-form-mobile.html" %}
+                                        {% if product.category.name == extras.item1 %}
+                                            <input type="hidden" type="number" name="quantity" value="{{ item.quantity }}">
+                                        {% elif product.category.name == extras.item2 %}
+                                            <input type="hidden" type="number" name="quantity" value="{{ item.quantity }}">
+                                        {% else %}
+                                            {% include "bag/quantity-form.html" %}
+                                        {% endif %}
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0 text-white">€{{ item.product.price | calc_subtotal:item.quantity }}</p>

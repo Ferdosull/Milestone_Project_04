@@ -163,6 +163,20 @@ label {
     padding: 1rem;
 }
 
+.user-padding {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 3rem;
+}
+
+.admin-padding {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 3rem;
+    padding-right: 1rem;
+}
+
 .all-text-padding {
     padding: 0.6rem;
 }
