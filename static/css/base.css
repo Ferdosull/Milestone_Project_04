@@ -358,7 +358,7 @@ label {
 	top: 0;
 	left: 0;
 	position: fixed;
-	background: rgba(10, 10, 10, 0.301);
+	background: rgba(10, 10, 10, 0.50);
 	z-index: -1;
 }
 
@@ -407,6 +407,11 @@ a.category-badge > span.badge:hover {
 .profile-input {
     color: #000;
     border: 1px solid rgba(7, 238, 219, 0.500);
+}
+
+.profile-text {
+    color: rgb(9, 161, 149);
+    font-size: 1.2rem;
 }
 
 .edit-delete {
@@ -484,10 +489,6 @@ a.category-badge > span.badge:hover {
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
-}
-
-.allauth-form-inner-content label:not([for='id_remember']) {
-    display: none;
 }
 
 .allauth-form-inner-content input::placeholder {

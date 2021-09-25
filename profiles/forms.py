@@ -31,4 +31,9 @@ class UserProfileForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'profile-form-input'
-            self.fields[field].label = False
+            self.fields['default_phone_number'].label = "Phone Number"
+            self.fields['default_postcode'].label = "Postal Code"
+            self.fields['default_town_or_city'].label = "Town or City"
+            self.fields['default_street_address1'].label = "Street Address 1"
+            self.fields['default_street_address2'].label = "Street Address 2"
+            self.fields['default_county'].label = "County, State or Locality"
