@@ -175,6 +175,10 @@ label {
     font-size: 1.2rem;
 }
 
+.modal-inner-text-color {
+    color: #555;
+}
+
 .display-product {
     margin-top: 1rem;
     margin-bottom: .5rem;

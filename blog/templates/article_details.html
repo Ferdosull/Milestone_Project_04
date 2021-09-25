@@ -61,10 +61,10 @@
                         data-target="#blog{{ post.id }}"><strong>Delete</strong><span class="text-white blog-text-size">
                             | </span></a>
                 </small>
-                <!-- Modal Structure Start -->
+                <!-- Blog Deletion Modal Structure Start -->
                 <div class="modal fade" id="blog{{ post.id }}" role="dialog">
                     <div class="modal-dialog">
-                        <!-- Modal Content -->
+                        <!-- Blog Deletion Modal Content -->
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title">Blog Deletion</h4>
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Modal Structure End -->
+                <!-- Blog Deletion Modal Structure End -->
                 {% endif %}
                 <div class="col-12 text-padding-bottom">
                     <a href="{% url 'blog' %}" class="btn btn-outline-teal rounded-1 mt-5">
@@ -108,6 +108,35 @@
                             </div>
                             <div class="card-body text-white">
                                 <div class="">{{ comment.comments | linebreaks }}</div>
+                                {% if request.user.is_superuser %}
+                                <a class="text-danger modal-trigger blog-text-size" data-toggle="modal"
+                                    data-target="#comment{{ comment.id }}"><span class="text-white blog-text-size"> |
+                                    </span><strong>Delete</strong><span class="text-white blog-text-size">
+                                        | </span></a>
+                                <!-- Comments Deletion Modal 1 Structure Start -->
+                                <div class="modal fade" id="comment{{ comment.id }}" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Comments Deletion Modal 1 Content -->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title modal-inner-text-color">Comment Deletion</h4>
+                                                <button type="button" class="close"
+                                                    data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body modal-inner-text-color">
+                                                <p>Are you sure you want to delete the comment by user
+                                                    "<strong>{{ comment.author }}</strong>"?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="{% url 'delete_comment' comment.id %}" class="btn btn-danger">DELETE</a>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">CANCEL</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Comments Deletion Modal 1 Structure End -->
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -123,6 +152,35 @@
                             </div>
                             <div class="card-body text-white">
                                 <div class="">{{ comment.comments | linebreaks }}</div>
+                                {% if request.user.is_superuser %}
+                                <a class="text-danger modal-trigger blog-text-size" data-toggle="modal"
+                                    data-target="#comment{{ comment.id }}"><span class="text-white blog-text-size"> |
+                                    </span><strong>Delete</strong><span class="text-white blog-text-size">
+                                        | </span></a>
+                                <!-- Comments Deletion Modal 2 Structure Start -->
+                                <div class="modal fade" id="comment{{ comment.id }}" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Comments Deletion 2 Modal Content -->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title modal-inner-text-color">Comment Deletion</h4>
+                                                <button type="button" class="close"
+                                                    data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body modal-inner-text-color">
+                                                <p>Are you sure you want to delete the comment by user
+                                                    "<strong>{{ comment.author }}</strong>"?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="{% url 'delete_comment' comment.id %}" class="btn btn-danger">DELETE</a>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">CANCEL</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Comments Deletion Modal 2 Structure End -->
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -130,21 +188,22 @@
                 {% endifequal %}
                 {% endfor %}
                 <!-- Comment Form -->
-                    {% if request.user.is_anonymous %}
-                    <p class="free-delivery-color small-text-shadow-black text-padding-left text-padding-top">Please<a class="text-info" href="{% url 'account_login' %}"> Login </a> or
-                        <a class="text-info" href="{% url 'account_signup' %}">Signup</a>
-                        to leave a comment. Thank you.</p>
-                    {% else %}
-                    <form class="all-padding comment-form-class" id="comment-form" method="POST" action="">
-                        {% csrf_token %}
-                        {{ comment_form|crispy }}
-                        <button class="btn btn-teal" type="submit">Submit</button>
-                    </form>
-                    {% endif %}
-                </div>
+                {% if request.user.is_anonymous %}
+                <p class="free-delivery-color small-text-shadow-black text-padding-left text-padding-top">Please<a
+                        class="text-info" href="{% url 'account_login' %}"> Login </a> or
+                    <a class="text-info" href="{% url 'account_signup' %}">Signup</a>
+                    to leave a comment. Thank you.</p>
+                {% else %}
+                <form class="all-padding comment-form-class" id="comment-form" method="POST" action="">
+                    {% csrf_token %}
+                    {{ comment_form|crispy }}
+                    <button class="btn btn-teal" type="submit">Submit</button>
+                </form>
+                {% endif %}
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 {% endblock %}

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
-from .models import Post
+from .models import Post, Comment
 from .forms import PostForm, CommentForm
 # Create your views here.
 
@@ -27,7 +27,7 @@ def detail(request, post_id):
         if comment_form.is_valid() and request.user.is_authenticated:
             new_comment = comment_form.save(commit=False)
             new_comment.post = post
-            new_comment.author = request.author
+            new_comment.author = request.user
             new_comment.save()
             messages.success(request, 'Comment added successfully!')
             return redirect(reverse('article-detail', args=[post.id]))
@@ -133,3 +133,20 @@ def delete_blog(request, post_id):
         return redirect(reverse('home'))
 
     return redirect(reverse('blog'))
+
+
+# Delete Comment
+@login_required
+def delete_comment(request, comment_id):
+    """
+    Allow an admin user to delete a comment
+    """
+    if request.user.is_superuser:
+        comment = Comment.objects.get(pk=comment_id)
+        comment.delete()
+        messages.info(request, 'Comment deleted!')
+    else:
+        messages.error(request, 'Sorry, you do not have permission for that.')
+        return redirect(reverse('home'))
+
+    return redirect('blog')
