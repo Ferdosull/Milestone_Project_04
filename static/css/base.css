@@ -400,6 +400,10 @@ a.category-badge > span.badge:hover {
     cursor: pointer !important;
 }
 
+.remove-item {
+    font-size: 1rem !important;
+}
+
 .form-control {
     border-radius: 0 !important;
 }

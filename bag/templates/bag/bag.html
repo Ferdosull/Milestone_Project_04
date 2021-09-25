@@ -44,7 +44,19 @@
                                         <p class="text-white small-text-shadow-black"><strong>Subtotal: </strong>${{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </div>
                                     <div class="col-12 col-sm-6">
-                                        {% include "bag/quantity-form-mobile.html" %}
+                                        {% if item.product.category.name == item.extras.item1 %}
+                                            <p class="my-0 small text-muted text-white text-padding-bottom">Qty: {{ item.quantity }}</p>
+                                            <a class="remove-item text-danger small-black-text-shadow float-left" id="remove_{{ item.item_id }}" 
+                                            data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                            <input type="hidden" type="number" name="quantity" value="{{ item.quantity }}">
+                                        {% elif item.product.category.name == item.extras.item2 %}
+                                            <p class="my-0 small text-muted text-white text-padding-bottom">Qty: {{ item.quantity }}</p>
+                                            <a class="remove-item text-danger small-black-text-shadow float-left" id="remove_{{ item.item_id }}" 
+                                            data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                            <input type="hidden" type="number" name="quantity" value="{{ item.quantity }}">
+                                        {% else %}
+                                            {% include "bag/quantity-form-mobile.html" %}
+                                        {% endif %}
                                     </div>
                                 </div>
                                 <div class="row"><div class="col"><hr></div></div>
@@ -89,9 +101,15 @@
                                         <p class="my-0 text-white">€{{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-10">
-                                        {% if product.category.name == extras.item1 %}
+                                        {% if item.product.category.name == item.extras.item1 %}
+                                            <p class="my-0 small text-muted text-white">Qty: {{ item.quantity }}
+                                            <a class="remove-item text-danger small-black-text-shadow float-right" id="remove_{{ item.item_id }}" 
+                                            data-product_size="{{ item.size }}"><small>Remove</small></a></p>
                                             <input type="hidden" type="number" name="quantity" value="{{ item.quantity }}">
-                                        {% elif product.category.name == extras.item2 %}
+                                        {% elif item.product.category.name == item.extras.item2 %}
+                                            <p class="my-0 small text-muted text-white">Qty: {{ item.quantity }}
+                                            <a class="remove-item text-danger small-black-text-shadow float-right" id="remove_{{ item.item_id }}" 
+                                            data-product_size="{{ item.size }}"><small>Remove</small></a></p>
                                             <input type="hidden" type="number" name="quantity" value="{{ item.quantity }}">
                                         {% else %}
                                             {% include "bag/quantity-form.html" %}
