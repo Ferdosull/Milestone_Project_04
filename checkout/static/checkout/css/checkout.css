@@ -1,3 +1,6 @@
+/* ----------------- Checkout CSS Styling ----------------- */
+
+/* - Stripe Payments Element Input Styling -*/
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
@@ -30,6 +33,7 @@
     right: 1rem;
 }
 
+/* - Payment form Element Styling to be inline with Stripe -*/
 #payment-form .form-control,
 #card-element {
     color: #000;
@@ -46,6 +50,7 @@ select option[value=""] {
     color: #aab7c4 !important;
 }
 
+/* - Overlay and Spinner after Order Submitted" styling -*/
 #loading-overlay {
 	display: none;
 	position: fixed;
@@ -65,6 +70,7 @@ select option[value=""] {
     height: 100%;
 }
 
+/* - Checkout Heading Element Styling -*/
 .checkout-text {
     color: rgb(9, 161, 149);
     font-size: 1.2rem;

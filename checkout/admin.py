@@ -3,11 +3,20 @@ from .models import Order, OrderLineItem
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
+    """
+    Creating a model and readonly_fields variable.
+    """
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):
+    """
+    Setting up the Django Admin Orders section.
+    Icluding the OrderLineItemAdminInline class/
+    Placing the ordering as first date is last
+    Newest order is first.
+    """
     inlines = (OrderLineItemAdminInline,)
 
     readonly_fields = ('order_number', 'date',

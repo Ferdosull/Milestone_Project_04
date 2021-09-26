@@ -8,6 +8,11 @@ from profiles.models import UserProfile
 
 
 class Order(models.Model):
+    """
+    Creating an Order model which stores an order number, stores the user details,
+    date of order, delivery cost, individual order totals, the shopping bag details
+    and the stripe payment intent details.
+    """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='orders')
@@ -60,6 +65,10 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """
+    Creating a line item model which contains stored specific information 
+    about the item itself (product info, size, quantity) and the order it originated from.
+    """
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     product_size = models.CharField(max_length=10, null=True, blank=True)  # XS, S, M, L, XL
