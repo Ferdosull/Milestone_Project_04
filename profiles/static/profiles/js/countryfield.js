@@ -1,3 +1,4 @@
+// Script to change the colour of the internal text to match the Stripe theme.
 let countrySelected = $('#id_default_country').val();
 if(!countrySelected) {
     $('#id_default_country').css('color', '#aab7c4');

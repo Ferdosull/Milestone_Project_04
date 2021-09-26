@@ -1,11 +1,15 @@
+<!-- Product Info include -->
+<!-- Product Name -->
 <p class="my-0 text-white"><strong>{{ item.product.name }}</strong></p>
+<!-- Product size, N/A if none -->
 {% if item.product.has_sizes %}
-    <p class="my-0 text-white"><strong>Size: </strong>{{ item.size|upper }}</p>
+<p class="my-0 text-white"><strong>Size: </strong>{{ item.size|upper }}</p>
 {% elif item.product.has_shoe_sizes %}
-    <p class="my-0 text-white"><strong>Size: </strong>{{ item.size|upper }}</p>
+<p class="my-0 text-white"><strong>Size: </strong>{{ item.size|upper }}</p>
 {% elif item.product.has_protein_sizes %}
-    <p class="my-0 text-white"><strong>Size: </strong>{{ item.size|upper }}</p>
+<p class="my-0 text-white"><strong>Size: </strong>{{ item.size|upper }}</p>
 {% else %}
-    <p class="my-0 text-white"><strong>Size: </strong>N/A</p>
+<p class="my-0 text-white"><strong>Size: </strong>N/A</p>
 {% endif %}
+<!-- Product SKU converted to Uppercase -->
 <p class="my-0 small text-muted text-white">SKU: {{ item.product.sku|upper }}</p>

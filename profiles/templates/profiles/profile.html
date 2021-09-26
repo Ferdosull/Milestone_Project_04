@@ -2,10 +2,12 @@
 {% load static %}
 
 {% block extra_css %}
+<!-- Loading the additional static profile.css file -->
 <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
 {% block page_header %}
+<!-- Page Header -->
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>
@@ -17,6 +19,7 @@
 <div class="overlay"></div>
 <div class="container">
     <div class="row">
+        <!-- Page Title -->
         <div class="col">
             <hr>
             <h2 class="logo-font mb-4 text-white">My Profile</h2>
@@ -27,17 +30,22 @@
         <div class=" card-background-color card-border all-padding">
             <div class="row">
                 <div class="col-12 col-lg-6">
+                    <!-- Delivery info table title -->
                     <p class="fieldset-label profile-text small-text-shadow-black">Default Delivery Information</p>
+                    <!-- Delivery information form -->
                     <form class="mt-3  input-color-text" action="{% url 'profile' %}" method="POST"
                         id="profile-update-form">
                         {% csrf_token %}
                         {{ form|crispy }}
+                        <!-- Update delivery information button -->
                         <button class="btn btn-teal rounded-1 text-uppercase float-right">Update Information</button>
                     </form>
                 </div>
                 <div class="col-12 col-lg-6">
+                    <!-- Order history column -->
                     <p class="text-white small-text-shadow-black">Order History</p>
                     <div class="order-history table-responsive">
+                        <!-- Order history details table -->
                         <table class="table table-sm table-borderless text-white small-text-shadow-black">
                             <thead>
                                 <tr>
@@ -81,5 +89,6 @@
 
     {% block postloadjs %}
     {{ block.super }}
+    <!-- Loading the additional static countryfield.js -->
     <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
     {% endblock %}

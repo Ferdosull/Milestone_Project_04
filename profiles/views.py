@@ -8,7 +8,11 @@ from .forms import UserProfileForm
 
 @login_required
 def profile(request):
-    """ Display the user's profile. """
+    """ 
+    View to display the user's profile.
+    The decorator insures that only a logged-in user can
+    access this view.
+    """
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -33,6 +37,11 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """ 
+    View to display the user's order history.
+    This is achieved by accessing the stored order number
+    from the users profile.
+    """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (

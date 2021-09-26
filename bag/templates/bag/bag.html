@@ -3,6 +3,7 @@
 {% load bag_tools %}
 
 {% block page_header %}
+<!-- Page Header -->
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>
@@ -14,37 +15,44 @@
 <div class="overlay"></div>
 <div class="container mb-2">
     <div class="row">
+        <!-- Page Title -->
         <div class="col">
             <hr>
             <h2 class="logo-font mb-4 text-white text-shadow-black">Shopping Bag</h2>
             <hr>
         </div>
     </div>
-
     <div class="row">
         <div class="col">
             {% if bag_items %}
+            <!-- Small device configuration Start -->
             <div class="text-padding-bottom">
                 <div class="d-block d-md-none card-background-color card-border all-padding">
                     <div class="row">
                         <div class="col">
+                            <!-- Bag summary heading -->
                             <p class="text-white small-text-shadow-black text-padding-top">A summary of your bag
                                 contents is below</p>
                         </div>
                     </div>
+                    <!-- For each item in the bag display the following values -->
                     {% for item in bag_items %}
                     <div class="row">
+                        <!-- Display Image Include -->
                         <div class="col-12 col-sm-6 mb-2">
                             {% include "bag/product-image.html" %}
                         </div>
+                        <!-- Product Info Include -->
                         <div class="col-12 col-sm-6 mb-2 text-white small-text-shadow-black">
                             {% include "bag/product-info.html" %}
                         </div>
+                        <!-- Product price & subtotal Include -->
                         <div class="col-12 col-sm-6 order-sm-last">
                             <p class="my-0 text-white small-text-shadow-black">Price Each: ${{ item.product.price }}</p>
                             <p class="text-white small-text-shadow-black"><strong>Subtotal:
                                 </strong>${{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
+                        <!-- If item can only have a quantity of "1" then display the quantity -->
                         <div class="col-12 col-sm-6">
                             {% if item.product.category.name == item.extras.item1 %}
                             <p class="my-0 small text-muted text-white text-padding-bottom">Qty: {{ item.quantity }}</p>
@@ -59,21 +67,25 @@
                                 data-product_size="{{ item.size }}"><small>Remove</small></a>
                             <input type="hidden" type="number" name="quantity" value="{{ item.quantity }}">
                             {% else %}
+                            <!-- If item can only have multiple quantities then display them and adjust with include -->
                             {% include "bag/quantity-form-mobile.html" %}
                             {% endif %}
                         </div>
                     </div>
+                    <!-- Horizontal Rule line break -->
                     <div class="row">
                         <div class="col">
                             <hr>
                         </div>
                     </div>
                     {% endfor %}
+                    <!-- Bag Total Include -->
                     <div class="row">
                         <div class="col text-white small-text-shadow-black">
                             {% include "bag/bag-total.html" %}
                         </div>
                     </div>
+                    <!-- Checkout Buttons Include -->
                     <div class="row">
                         <div class="col">
                             {% include "bag/checkout-buttons.html" %}
@@ -81,12 +93,10 @@
                     </div>
                 </div>
             </div>
-            <div class="btt-button shadow-sm d-none scroll-border-color">
-                <a class="btt-link d-flex h-100">
-                    <i class="fas fa-arrow-up scroll-arrow mx-auto my-auto"></i>
-                </a>
-            </div>
+            <!-- Small device configuration End -->
+            <!-- Medium & large device configuration Start -->
             <div class="table-responsive rounded d-none d-md-block">
+                <!-- Table format for displaying product info on medium and large screen devices -->
                 <table class="table table-sm card-background-color">
                     <thead class="text-white text-shadow-black">
                         <tr>
@@ -99,16 +109,20 @@
                     </thead>
                     {% for item in bag_items %}
                     <tr>
+                        <!-- Display Image Include -->
                         <td class="p-3 w-25">
                             {% include "bag/product-image.html" %}
                         </td>
+                        <!-- Product Info Include -->
                         <td class="py-3">
                             {% include "bag/product-info.html" %}
                         </td>
+                        <!-- Product price & subtotal Include -->
                         <td class="py-3">
                             <p class="my-0 text-white">€{{ item.product.price }}</p>
                         </td>
                         <td class="py-3 w-10">
+                            <!-- If item can only have a quantity of "1" then display the quantity -->
                             {% if item.product.category.name == item.extras.item1 %}
                             <p class="my-0 small text-muted text-white">Qty: {{ item.quantity }}
                                 <a class="remove-item text-danger small-black-text-shadow float-right"
@@ -122,6 +136,7 @@
                                     data-product_size="{{ item.size }}"><small>Remove</small></a></p>
                             <input type="hidden" type="number" name="quantity" value="{{ item.quantity }}">
                             {% else %}
+                            <!-- If item can only have multiple quantities then display them and adjust with include -->
                             {% include "bag/quantity-form.html" %}
                             {% endif %}
                         </td>
@@ -130,11 +145,13 @@
                         </td>
                     </tr>
                     {% endfor %}
+                    <!-- Bag Total Include -->
                     <tr>
                         <td colspan="5" class="pt-5 text-right text-white">
                             {% include "bag/bag-total.html" %}
                         </td>
                     </tr>
+                    <!-- Checkout Buttons Include -->
                     <tr>
                         <td colspan="5" class="text-right">
                             {% include "bag/checkout-buttons.html" %}
@@ -143,6 +160,7 @@
                 </table>
             </div>
             {% else %}
+            <!-- Display to User that the bag is empty -->
             <p class="lead mb-5 text-white text-shadow-black">Your bag is empty.</p>
             <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
                 <span class="icon text-white text-shadow-black">
@@ -151,6 +169,13 @@
                 <span class="text-uppercase text-white text-shadow-black">Keep Shopping</span>
             </a>
             {% endif %}
+            <!-- Medium & large device configuration End -->
+            <!-- Scroll to top button -->
+            <div class="btt-button shadow-sm d-none scroll-border-color">
+                <a class="btt-link d-flex h-100">
+                    <i class="fas fa-arrow-up scroll-arrow mx-auto my-auto"></i>
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -158,8 +183,8 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<!-- Loading the additional static quantity_input_script.html with js scripting inside -->
 {% include 'products/includes/quantity_input_script.html' %}
-
 <script type="text/javascript">
     // Update quantity on click
     $('.update-link').click(function (e) {
@@ -183,6 +208,8 @@
                 location.reload();
             });
     })
+
+    // Scroll to top behaviour
     $('.btt-link').click(function (e) {
         window.scrollTo({
             top: 0,

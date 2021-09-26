@@ -1,36 +1,44 @@
+<!-- Quantity form include Desktop -->
 <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
     {% csrf_token %}
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-prepend">
-                <button class="decrement-qty btn btn-sm btn-teal rounded-0 small-text-shadow-black" 
-                    data-item_id="{{ item.item_id }}{{ item.size }}-mobile" id="decrement-qty_{{ item.item_id }}{{ item.size }}-mobile">
+                <!-- Decrement button quantity -->
+                <button class="decrement-qty btn btn-sm btn-teal rounded-0 small-text-shadow-black"
+                    data-item_id="{{ item.item_id }}{{ item.size }}-mobile"
+                    id="decrement-qty_{{ item.item_id }}{{ item.size }}-mobile">
                     <span>
                         <i class="fas fa-minus fa-sm"></i>
                     </span>
                 </button>
             </div>
-            <input class="form-control form-control-sm qty_input" type="number"
-                name="quantity" value="{{ item.quantity }}" min="1" max="10"
-                data-item_id="{{ item.item_id }}{{ item.size }}-mobile"
+            <!-- Value input form -->
+            <input class="form-control form-control-sm qty_input" type="number" name="quantity"
+                value="{{ item.quantity }}" min="1" max="10" data-item_id="{{ item.item_id }}{{ item.size }}-mobile"
                 id="id_qty_{{ item.item_id }}{{ item.size }}-mobile">
             <div class="input-group-append">
+                <!-- Increment button quantity -->
                 <button class="increment-qty btn btn-sm btn-teal rounded-0 small-text-shadow-black"
-                    data-item_id="{{ item.item_id }}{{ item.size }}-mobile" id="increment-qty_{{ item.item_id }}{{ item.size }}-mobile">
+                    data-item_id="{{ item.item_id }}{{ item.size }}-mobile"
+                    id="increment-qty_{{ item.item_id }}{{ item.size }}-mobile">
                     <span>
                         <i class="fas fa-plus fa-sm"></i>
                     </span>
                 </button>
             </div>
+            <!-- If product has sizes record them in a hidden input field -->
             {% if item.product.has_sizes %}
-                <input type="hidden" name="product_size" value="{{ item.size }}">
+            <input type="hidden" name="product_size" value="{{ item.size }}">
             {% elif item.product.has_shoe_sizes %}
-                <input type="hidden" name="product_size" value="{{ item.size }}">
+            <input type="hidden" name="product_size" value="{{ item.size }}">
             {% elif item.product.has_protein_sizes %}
-                <input type="hidden" name="product_size" value="{{ item.size }}">
+            <input type="hidden" name="product_size" value="{{ item.size }}">
             {% endif %}
         </div>
     </div>
 </form>
+<!-- Update quantity and remove item buttons -->
 <a class="update-link text-light small-black-text-shadow"><small>Update</small></a>
-<a class="remove-item text-danger small-black-text-shadow float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+<a class="remove-item text-danger small-black-text-shadow float-right" id="remove_{{ item.item_id }}"
+    data-product_size="{{ item.size }}"><small>Remove</small></a>

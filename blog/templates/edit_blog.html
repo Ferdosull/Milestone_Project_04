@@ -2,53 +2,60 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<!-- Page Header -->
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container mb-2">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4 text-white text-shadow-black">Edit Blog</h2>
-                <hr>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 col-md-6 text-padding-bottom">
-                <div class="card-background-color card-border all-text-padding text-white small-text-shadow-black">
-                    <form method="POST" action="{% url 'edit_blog' post.id %}" class="form mb-2" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {% for field in form %}
-                            {% if field.name != 'image' %}
-                                {{ field | as_crispy_field }}
-                            {% else %}
-                                {{ field }}
-                            {% endif %}
-                        {% endfor %}
-                        <div class="text-right">
-                            <a class="btn btn-outline-teal rounded-1 small-text-shadow-black" href="{% url 'blog' %}">Back to Blogs</a>
-                            <button class="btn btn-teal rounded-1" type="submit">Save & Update</button>
-                        </div>
-                    </form>
-                </div>
-            </div>            
+<div class="overlay"></div>
+<div class="container mb-2">
+    <!-- Page Title -->
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4 text-white text-shadow-black">Edit Blog</h2>
+            <hr>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 col-md-6 text-padding-bottom">
+            <div class="card-background-color card-border all-text-padding text-white small-text-shadow-black">
+                <!-- Edit the Blog using crispy fields -->
+                <form method="POST" action="{% url 'edit_blog' post.id %}" class="form mb-2"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    {% if field.name != 'image' %}
+                    {{ field | as_crispy_field }}
+                    {% else %}
+                    {{ field }}
+                    {% endif %}
+                    {% endfor %}
+                    <div class="text-right">
+                        <!-- Back to Blogs button -->
+                        <a class="btn btn-outline-teal rounded-1 small-text-shadow-black" href="{% url 'blog' %}">Back
+                            to Blogs</a>
+                        <!-- Save & Update button -->
+                        <button class="btn btn-teal rounded-1" type="submit">Save & Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $('#new-image').change(function() {
-            var file = $('#new-image')[0].files[0];
-            $('#filename').text(`Image will be set to: ${file.name}`);
-        });
-    </script>
+{{ block.super }}
+<!-- Changing image & setting title as filename -->
+<script type="text/javascript">
+    $('#new-image').change(function () {
+        var file = $('#new-image')[0].files[0];
+        $('#filename').text(`Image will be set to: ${file.name}`);
+    });
+</script>
 {% endblock %}

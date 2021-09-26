@@ -3,12 +3,13 @@ from django.contrib.auth.models import User
 from django.utils.timezone import datetime, now
 
 
-# Blog post model
+# Admin blog post model
 class Post(models.Model):
     """
     This model is for blog posts which include the user,
     the title, an image or url image, the body text, date & time it was created,
     an alternate submission name and an email name for contact.
+    The ordering display is by date.
     """
 
     class Meta:
@@ -27,12 +28,15 @@ class Post(models.Model):
         return self.title + ' | ' + str(self.author)
 
 
-# Blog Comments model
+# Admin/User Comments model
 class Comment(models.Model):
     """
     This is a model for creating blog comments on the actual blog posts.
     The model includes the user making the comment, the post they are commenting on,
-    the comment itself and the date/time the comment was made"
+    the comment itself and the date/time the comment was made.
+    The ordering is "Oldest post first/newest post last",
+    similar to a messaging app conversation. This is to allow
+    for response comments by the admin if required.
     """
 
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -42,4 +46,4 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
-        return f"Comment on {self.post.title} by {self.author}"
+        return f"Comment made on {self.post.title} by {self.author}"

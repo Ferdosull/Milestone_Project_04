@@ -5,7 +5,12 @@ from products.models import Product
 
 
 def bag_contents(request):
-
+    """ 
+    A view to create a context processor for the shopping bag.
+    The contents of the shopping bag will now be available
+    across the site. This processor also takes into account the
+    free delivery threshold and carries out the calculation accordingly.
+    """
     bag_items = []
     total = 0
     product_count = 0

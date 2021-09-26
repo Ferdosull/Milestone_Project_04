@@ -2,118 +2,145 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+<!-- Loading the additional static profile.css file -->
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<!-- Page Header -->
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
 <div class="overlay"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center mt-3">
-                <h2 class="logo-font text-padding-top text-padding-bottom text-shadow-black text-white">SFC Blog</h2>
-                    {% for post in object_list %}
-                    <div class="col-lg-8 offset-lg-2 text-padding-bottom">
-                        <!-- Bootstrap Card -->
-                        <div class="card-background-color card-border">
-                            <div class="row g-0">
-                                <!-- Blog image -->
-                                <div class="col-md-5 text-padding-top text-padding-bottom">
-                                    {% if post.image_url %}
-                                    <a href="{{ post.image_url }}" target="_blank">
-                                        <img class="card-img-top img-fluid text-padding-left" src="{{ post.image_url }}" alt="{{ post.title }}">
-                                    </a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center mt-3">
+            <!-- Page Title -->
+            <h2 class="logo-font text-padding-top text-padding-bottom text-shadow-black text-white">SFC Blog</h2>
+            {% for post in object_list %}
+            <div class="col-lg-8 offset-lg-2 text-padding-bottom">
+                <!-- Bootstrap Card Style -->
+                <div class="card-background-color card-border">
+                    <div class="row g-0">
+                        <!-- Blog image display -->
+                        <div class="col-md-5 text-padding-top text-padding-bottom">
+                            {% if post.image_url %}
+                            <a href="{% url 'article-detail' post.pk %}">
+                                <img class="card-img-top img-fluid text-padding-left" src="{{ post.image_url }}"
+                                    alt="{{ post.title }}">
+                            </a>
+                            {% else %}
+                            {% if post.image %}
+                            <a href="{% url 'article-detail' post.pk %}">
+                                <img class="card-img-top img-fluid text-padding-left" src="{{ post.image.url }}"
+                                    alt="{{ post.title }}">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'article-detail' post.pk %}">
+                                <img class="card-img-top img-fluid text-padding-left" src="{{ MEDIA_URL }}noimage.png"
+                                    alt="{{ post.title }}">
+                            </a>
+                            {% endif %}
+                            {% endif %}
+                        </div>
+                        <!-- Blog Article Details Condensed -->
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <p class="font-weight-bold text-white small-text-shadow-black">{{ post.title }}</p>
+                                <p class="mt-3 text-white small-text-shadow-black">{{ post.body|slice:":120" }}..... <a
+                                        class="email-text" href="{% url 'article-detail' post.pk %}">Read More!</a></p>
+                                <div class="blog-detail-wrapper">
+                                    {% if post.alternate_submit_name %}
+                                    <p
+                                        class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top">
+                                        Submitted by: {{ post.alternate_submit_name }} on {{ post.date }}</p>
                                     {% else %}
-                                        {% if post.image %}
-                                        <a href="{{ post.image.url }}" target="_blank">
-                                            <img class="card-img-top img-fluid text-padding-left" src="{{ post.image.url }}" alt="{{ post.title }}">
-                                        </a>
-                                        {% else %}
-                                        <a href="">
-                                            <img class="card-img-top img-fluid text-padding-left" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.title }}">
-                                        </a>
-                                        {% endif %}
-                                    {% endif %} 
+                                    <p
+                                        class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top">
+                                        Submitted by: {{ post.author.first_name }} on {{ post.date }}</p>
+                                    {% endif %}
                                 </div>
-                                <!-- Blog Details -->
-                                <div class="col-md-7">
-                                    <div class="card-body">
-                                        <p class="font-weight-bold text-white small-text-shadow-black">{{ post.title }}</p>
-                                        <p class="mt-3 text-white small-text-shadow-black">{{ post.body|slice:":120" }}..... <a class="email-text" href="{% url 'article-detail' post.pk %}">Read More!</a></p>
-                                        <div class="blog-detail-wrapper">
-                                            {% if post.alternate_submit_name %}
-                                                <p class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top">Submitted by: {{ post.alternate_submit_name }} on {{ post.date }}</p>
-                                            {% else %}
-                                                <p class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top">Submitted by: {{ post.author.first_name }} on {{ post.date }}</p>
-                                            {% endif %}
-                                        </div>
-                                        <!-- Read more button -->
-                                        <div class="read-more text-center edit-delete-padding-bottom">
-                                            <a href="{% url 'article-detail' post.pk %}" class="btn btn-teal rounded-1 text-uppercase mt-4 small-text-shadow-black">Read More</a>
-                                        </div>
-                                        {% csrf_token %}
-                                        {% if request.user.is_superuser %}
-                                        <small class="edit-delete">
-                                            <a href="{% url 'edit_blog' post.id %}"><span class="text-white blog-text-size"> | </span><strong class="blog-text-size">Edit</strong><span class="text-white blog-text-size"> | </span></a>
-                                            <a class="text-danger modal-trigger blog-text-size" data-toggle="modal" data-target="#blog{{ post.id }}"><strong>Delete</strong><span class="text-white blog-text-size"> | </span></a>
-                                        </small>
-                                        {% endif %}
-                                        <!-- Modal Structure Start -->
-                                        <div class="modal fade" id="blog{{ post.id }}" role="dialog">
-                                            <div class="modal-dialog">
-                                            <!-- Modal Content -->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Blog Deletion</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>Are you sure you want to delete the blog "<strong>{{ post.title }}</strong>"?</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <a href="{% url 'delete_blog' post.id %}" class="btn btn-danger">DELETE</a>
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
-                                                </div>
+                                <!-- Read more button/link -->
+                                <div class="read-more text-center edit-delete-padding-bottom">
+                                    <a href="{% url 'article-detail' post.pk %}"
+                                        class="btn btn-teal rounded-1 text-uppercase mt-4 small-text-shadow-black">Read
+                                        More</a>
+                                </div>
+                                {% csrf_token %}
+                                {% if request.user.is_superuser %}
+                                <!-- Edit & Delete links if SUperuser -->
+                                <small class="edit-delete">
+                                    <a href="{% url 'edit_blog' post.id %}"><span class="text-white blog-text-size"> |
+                                        </span><strong class="blog-text-size">Edit</strong><span
+                                            class="text-white blog-text-size"> | </span></a>
+                                    <a class="text-danger modal-trigger blog-text-size" data-toggle="modal"
+                                        data-target="#blog{{ post.id }}"><strong>Delete</strong><span
+                                            class="text-white blog-text-size"> | </span></a>
+                                </small>
+                                {% endif %}
+                                <!-- Delete Modal Structure Start -->
+                                <div class="modal fade" id="blog{{ post.id }}" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Delete Modal Content -->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Blog Deletion</h4>
+                                                <button type="button" class="close"
+                                                    data-dismiss="modal">&times;</button>
                                             </div>
+                                            <div class="modal-body">
+                                                <p>Are you sure you want to delete the blog
+                                                    "<strong>{{ post.title }}</strong>"?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="{% url 'delete_blog' post.id %}"
+                                                    class="btn btn-danger">DELETE</a>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">CANCEL</button>
                                             </div>
                                         </div>
-                                        <!-- Modal Structure End -->
                                     </div>
                                 </div>
+                                <!-- Delete Modal Structure End -->
                             </div>
                         </div>
                     </div>
-                {% endfor %}
+                </div>
             </div>
+            {% endfor %}
         </div>
     </div>
-    <div class="btt-button shadow-sm d-none scroll-border-color">
-        <a class="btt-link d-flex h-100">
-            <i class="fas fa-arrow-up scroll-arrow mx-auto my-auto"></i>
-        </a>	
-    </div>
+</div>
+<!-- Scroll to top button -->
+<div class="btt-button shadow-sm d-none scroll-border-color">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-up scroll-arrow mx-auto my-auto"></i>
+    </a>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-		$('.btt-link').click(function(e) {
-			window.scrollTo({top: 0, behavior: 'smooth'})
-		})
+{{ block.super }}
+<!-- Scroll to top behaviour -->
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    })
 
-        $(window).scroll(function(){
-            if ($(this).scrollTop() >= 100) {
-                $('.btt-button').removeClass('d-none');
-            } else {
-                $('.btt-button').addClass('d-none');
-            }
-        });
-	</script>
+    $(window).scroll(function () {
+        if ($(this).scrollTop() >= 100) {
+            $('.btt-button').removeClass('d-none');
+        } else {
+            $('.btt-button').addClass('d-none');
+        }
+    });
+</script>
 {% endblock %}

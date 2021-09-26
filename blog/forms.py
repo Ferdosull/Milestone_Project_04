@@ -3,7 +3,9 @@ from products.widgets import CustomClearableFileInput
 from .models import Post, Comment
 
 class PostForm(forms.ModelForm):
-
+    """
+    Creating the admin blog post form
+    """
     class Meta:
         model = Post
         fields = '__all__'
@@ -18,7 +20,7 @@ class PostForm(forms.ModelForm):
 
 class CommentForm(forms.ModelForm):
     """
-    Creating a user comment form
+    Creating the admin/user comment form
     """
 
     class Meta:
