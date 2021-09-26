@@ -1,3 +1,6 @@
+/* -------------- Base CSS Styling -------------- */
+
+/* - Main Image and html styling CSS - */
 html {
     height: 100%;
 }
@@ -10,6 +13,44 @@ body {
     font-family: 'Rubik', sans-serif;
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: rgba(10, 10, 10, 0.50);
+	z-index: -1;
+}
+
+.blur-overlay {
+    backdrop-filter: blur(3px);
+}
+
+.form-control {
+    border-radius: 0 !important;
+}
+
+.table-sm td, .table-sm th {
+    padding: 1rem !important;
+}
+
+.profile-input {
+    color: #000;
+    border: 1px solid rgba(7, 238, 219, 0.500);
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+/* - Main Display Header & Navbar Styling CSS - */
 .header-logo-font {
     font-family: 'Aclonica', sans-serif;
 }
@@ -22,6 +63,35 @@ body {
     background: rgba(250, 250, 250, 0.8);
 }
 
+.display-product {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+}
+
+.bg-purple {
+    background-color: #db45d4;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+.border-info {
+    border-color: rgba(2, 156, 143, 0.8) !important;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.search-radius-right {
+    border-top-right-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+}
+
+.search-radius-left {
+    border-top-left-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+}
+
+/* - All Card Background & Border Styling CSS - */
 .card-background-color {
     background: rgba(24, 24, 24, 0.6);
 }
@@ -40,8 +110,11 @@ body {
     border-width: 0.15rem;
 }
 
-/* ----------- Comments Styling -----------  */
+.all-padding {
+    padding: 1rem;
+}
 
+/* - Comments Card Styling -  */
 .card-body {
     padding: 0.5rem;
 }
@@ -54,8 +127,7 @@ body {
     opacity: 1
 }
 
-/* ------- Admin ---------*/
-
+/* - Admin Card Styling - */
 .card-admin {
     background: #383438c9;
     border-color: rgba(9, 163, 150, 0.836);
@@ -69,8 +141,14 @@ body {
     border-bottom: 1px solid rgba(9, 163, 150, 0.836);
 }
 
-/* ------- User ---------*/
+.admin-padding {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 3rem;
+    padding-right: 1rem;
+}
 
+/* - User Card Styling - */
 .card-user {
     background: #383438c9;
     border-color: #a0339ae0;
@@ -84,8 +162,14 @@ body {
     border-bottom: 1px solid #a0339ae0;;
 }
 
-/* ------- End Card Styling ---------*/
+.user-padding {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 3rem;
+}
 
+/* - Form Entry CSS Styling - */
 textarea.form-control {
     max-height: 6rem !important;
 }
@@ -102,6 +186,8 @@ label {
     background: #fdfdfd8f !important;
 }
 
+
+/* - Font & Text CSS Styling - */
 .text-shadow-white {
     text-shadow: 3px 3px 3px #e7e5e5;
 }
@@ -159,24 +245,6 @@ label {
     font-size: 0.8rem;
 }
 
-.all-padding {
-    padding: 1rem;
-}
-
-.user-padding {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 3rem;
-}
-
-.admin-padding {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 3rem;
-    padding-right: 1rem;
-}
-
 .all-text-padding {
     padding: 0.6rem;
 }
@@ -189,20 +257,52 @@ label {
     font-size: 1.2rem;
 }
 
-.modal-inner-text-color {
-    color: #555;
-}
-
-.display-product {
-    margin-top: 1rem;
-    margin-bottom: .5rem;
-}
-
 .blog-text-size {
     font-size: 1.1rem !important;
 }
 
-/* from Bulma */
+.logo-font {
+    text-transform: uppercase;
+}
+
+.text-primary {
+    color: rgb(8, 192, 177) !important;
+    text-shadow: 0px 0px 0px black !important;
+}
+
+.text-info {
+    color: white !important;
+    text-shadow: 3px 3px 5px rgb(0, 8, 8) !important;
+}
+
+.text-info-no-shadow {
+    color: white !important;
+}
+
+.cost-size {
+    font-size: 0.9rem;
+    padding-top: 0.1rem;
+}
+
+.remove-item {
+    font-size: 1rem !important;
+}
+
+.profile-text {
+    color: rgb(9, 161, 149);
+    font-size: 1.2rem;
+}
+
+.edit-delete {
+    font-size: 0.9rem;
+}
+
+/* - Delete Modal Inner CSS Styling - */
+.modal-inner-text-color {
+    color: #555;
+}
+
+/* - Icon & Logo Display CSS Styling - */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -214,22 +314,12 @@ label {
     font-size: 1.6rem;
 }
 
-.logo-font {
-    text-transform: uppercase;
-}
-
 .main-logo-link {
     width: fit-content;
 }
 
 .menu-items-font {
     font-size: 1.45rem;
-}
-
-.shop-now-button {
-    background: rgba(7, 238, 219, 0.7);
-    color: white;
-    min-width: 260px;
 }
 
 .sorting-badge-color {
@@ -254,23 +344,16 @@ label {
     font-size: 1.0rem;
 }
 
+/* - Button href & link CSS Styling - */
+.shop-now-button {
+    background: rgba(7, 238, 219, 0.7);
+    color: white;
+    min-width: 260px;
+}
+
 .btn-black {
     background: black;
     color: white;
-}
-
-.text-primary {
-    color: rgb(8, 192, 177) !important;
-    text-shadow: 0px 0px 0px black !important;
-}
-
-.text-info {
-    color: white !important;
-    text-shadow: 3px 3px 5px rgb(0, 8, 8) !important;
-}
-
-.text-info-no-shadow {
-    color: white !important;
 }
 
 .btn-teal {
@@ -280,7 +363,7 @@ label {
 
 .btn-outline-teal {
     background: rgba(255, 255, 255, 0.815);
-    color: rgba(7, 238, 219, 0.7)!important; /* use important to override link colors for <a> elements */
+    color: rgba(7, 238, 219, 0.7)!important;
     border: 1px solid rgba(7, 238, 219, 0.7);
 }
 
@@ -288,11 +371,6 @@ label {
 .basket-hover:active,
 .basket-hover:focus {
     color: #db45d4 !important;
-}
-
-.cost-size {
-    font-size: 0.9rem;
-    padding-top: 0.1rem;
 }
 
 .btn-outline-teal:hover,
@@ -323,6 +401,7 @@ label {
     color: white;
 }
 
+/* - Text & Icon color CSS Styling - */
 .text-black {
     color: #000 !important;
 }
@@ -353,33 +432,6 @@ label {
     color: #a0339a !important;
 }
 
-.bg-purple {
-    background-color: #db45d4;
-}
-
-.border-black {
-    border: 1px solid black !important;
-}
-
-.border-info {
-    border-color: rgba(2, 156, 143, 0.8) !important;
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
-.overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: rgba(10, 10, 10, 0.50);
-	z-index: -1;
-}
-
-.blur-overlay {
-    backdrop-filter: blur(3px);
-}
-
 a.category-badge > span.badge:hover {
     background: rgba(2, 156, 143, 0.8) !important;
     color: #fff !important;
@@ -400,44 +452,7 @@ a.category-badge > span.badge:hover {
     cursor: pointer !important;
 }
 
-.remove-item {
-    font-size: 1rem !important;
-}
-
-.form-control {
-    border-radius: 0 !important;
-}
-
-.table-sm td, .table-sm th {
-    padding: 1rem !important;
-}
-
-.search-radius-right {
-    border-top-right-radius: 20px !important;
-    border-bottom-right-radius: 20px !important;
-}
-
-.search-radius-left {
-    border-top-left-radius: 20px !important;
-    border-bottom-left-radius: 20px !important;
-}
-
-.profile-input {
-    color: #000;
-    border: 1px solid rgba(7, 238, 219, 0.500);
-}
-
-.profile-text {
-    color: rgb(9, 161, 149);
-    font-size: 1.2rem;
-}
-
-.edit-delete {
-    font-size: 0.9rem;
-}
-
-/* ------------------------------- bootstrap toasts */
-
+/* - Bootstrap Toasts Styling CSS - */
 .message-container {
     position: fixed;
     top: 72px;
@@ -458,6 +473,7 @@ a.category-badge > span.badge:hover {
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+/* - Arrow Up Styling CSS - */
 .arrow-up {
     width: 0; 
     height: 0; 
@@ -470,7 +486,6 @@ a.category-badge > span.badge:hover {
 }
 
 /* Convenience classes - colors copied from Bootstrap */
-
 .arrow-primary {
     border-bottom-color: #007bff !important;
 }
@@ -503,18 +518,7 @@ a.category-badge > span.badge:hover {
     border-bottom-color: #343a40 !important;
 }
 
-.bag-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.allauth-form-inner-content input::placeholder {
-    color: #aab7c4;
-}
-
-/* Product Form */
-
+/* - Product Form Styling CSS - */
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -544,17 +548,16 @@ a.category-badge > span.badge:hover {
 .mr-5 {
     margin-right: 1.6rem!important;
 }
+/* -------------- Media Queries -------------- */
 
-/* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
+/* - Increase the container size on xl screens - */
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;
   }
 }
 
-/* fixed top navbar only on medium and up */
+/* - have a fixed top navbar on medium screen sizes and up - */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -569,7 +572,7 @@ a.category-badge > span.badge:hover {
     }
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
+/* - Increased top padding when navbar is collapsed - */
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
@@ -620,12 +623,13 @@ a.category-badge > span.badge:hover {
     }
 }
 
+/* - add some extra padding on top when on mobile views less than width 767px - */
 @media (max-width: 767px) {
     .mobile-padding-top {
         padding-top: 0.6rem;
     }
 }
-
+/* - reduce the size of the logo and ico when on screens below width 1350px resolution - */
 @media (max-width: 1350px) {
     .minimise-logo-text {
         font-size: 1.4rem;
