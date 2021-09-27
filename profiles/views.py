@@ -8,7 +8,7 @@ from .forms import UserProfileForm
 
 @login_required
 def profile(request):
-    """ 
+    """
     View to display the user's profile.
     The decorator insures that only a logged-in user can
     access this view.
@@ -21,7 +21,8 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(
+                request, 'Update failed. Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -37,7 +38,7 @@ def profile(request):
 
 
 def order_history(request, order_number):
-    """ 
+    """
     View to display the user's order history.
     This is achieved by accessing the stored order number
     from the users profile.

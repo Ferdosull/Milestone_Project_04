@@ -7,9 +7,9 @@ from django.utils.timezone import datetime, now
 class Post(models.Model):
     """
     This model is for blog posts which include the user,
-    the title, an image or url image, the body text, date & time it was created,
-    an alternate submission name and an email name for contact.
-    The ordering display is by date.
+    the title, an image or url image, the body text, date & time it
+    was created, an alternate submission name and an email name
+    for contact. The ordering display is by date.
     """
 
     class Meta:
@@ -18,8 +18,10 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     date = models.DateTimeField(default=datetime.now, blank=True)
     body = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
-    alternate_submit_name = models.CharField(max_length=20, null=True, blank=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='posts')
+    alternate_submit_name = models.CharField(
+        max_length=20, null=True, blank=True)
     email = models.EmailField(('email'), null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
@@ -32,16 +34,16 @@ class Post(models.Model):
 class Comment(models.Model):
     """
     This is a model for creating blog comments on the actual blog posts.
-    The model includes the user making the comment, the post they are commenting on,
-    the comment itself and the date/time the comment was made.
+    The model includes the user making the comment, the post they are
+    commenting on, the comment itself and the date/time the comment was made.
     The ordering is "Oldest post first/newest post last",
     similar to a messaging app conversation. This is to allow
     for response comments by the admin if required.
     """
 
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE,
-                                  related_name='comments')
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comments')
     comments = models.TextField(max_length=1000, blank=False, null=True)
     created_on = models.DateTimeField(auto_now_add=True, blank=True)
 

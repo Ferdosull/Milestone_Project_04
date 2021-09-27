@@ -2,6 +2,7 @@ from django import forms
 from products.widgets import CustomClearableFileInput
 from .models import Post, Comment
 
+
 class PostForm(forms.ModelForm):
     """
     Creating the admin blog post form

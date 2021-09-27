@@ -4,7 +4,7 @@ from .models import Product, Category
 
 class ProductAdmin(admin.ModelAdmin):
     """
-    Lets the Admin know which Product fields will be displayed, 
+    Lets the Admin know which Product fields will be displayed,
     searched, and in what order (by sku).
     """
     list_display = (

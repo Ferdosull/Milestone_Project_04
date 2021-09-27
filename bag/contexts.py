@@ -5,7 +5,7 @@ from products.models import Product
 
 
 def bag_contents(request):
-    """ 
+    """
     A view to create a context processor for the shopping bag.
     The contents of the shopping bag will now be available
     across the site. This processor also takes into account the
@@ -29,7 +29,7 @@ def bag_contents(request):
                 'item_id': item_id,
                 'quantity': item_data,
                 'product': product,
-                'extras' : extras,
+                'extras': extras,
             })
         else:
             product = get_object_or_404(Product, pk=item_id)
@@ -45,7 +45,7 @@ def bag_contents(request):
                     'quantity': quantity,
                     'product': product,
                     'size': size,
-                    'extras' : extras,
+                    'extras': extras,
                 })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:

@@ -86,6 +86,7 @@ def add_blog_post(request):
 
     return render(request, template, context)
 
+
 # Edit a Blog Post
 @login_required
 def edit_blog(request, post_id):
