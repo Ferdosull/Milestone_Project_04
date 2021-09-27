@@ -187,7 +187,7 @@
 
   {% block postloadjs %}
   {{ block.super }}
-  <script type="text/javascript">
+  <script> // type="text/javascript"
       // Scroll to top behaviour
       $('.btt-link').click(function (e) {
           window.scrollTo({
@@ -205,7 +205,7 @@
       });
   </script>
 
-  <script type="text/javascript">
+  <script>
       // JS function for Product sorting selector logic
       $('#sort-selector').change(function () {
           var selector = $(this);

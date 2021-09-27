@@ -58,7 +58,7 @@
                     class="mb-0 text-white small-text-shadow-black text-padding-left-right text-padding-top text-padding-bottom">
                     <!-- mailto auto populated email link -->
                     <a class="email-text"
-                        href="mailto:{{ post.email }}?subject={{ post.title }}&body=Please send me more information about the {{ post.title }}."><strong>{{ post.email }}</strong></a>
+                        href="mailto:{{ post.email }}?subject=Blog-Post-ID-Number:{{ post.id }}&body=Please_Leave_Enquiry_Below"><strong>{{ post.email }}</strong></a>
                 </p>
                 {% csrf_token %}
                 <!-- Edit & Delete links if SUperuser -->
@@ -229,7 +229,7 @@
 {% block postloadjs %}
 {{ block.super }}
 <!-- Scroll to top behaviour -->
-<script type="text/javascript">
+<script> // type="text/javascript"
     $('.btt-link').click(function (e) {
         window.scrollTo({
             top: 0,
