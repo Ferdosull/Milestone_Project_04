@@ -2,7 +2,7 @@
 
 /* - Order History Summary Styling -*/
 .order-history {
-    max-height: 416px;
+    max-height: 600px;
     overflow-y: auto;
 }
 

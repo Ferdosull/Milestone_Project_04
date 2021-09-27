@@ -5,23 +5,23 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block inner_content %}
-  <hr>
-    <h2 class="logo-font text-white mb-4">{% trans "Sign Out" %}</h2>
-  <hr>
-<div class="small-info-padding">
+<hr>
+<h2 class="logo-font text-white mb-4">{% trans "Sign Out" %}</h2>
+<hr>
 <div class="card-background-color card-border all-padding">
-<p class="text-white small-text-shadow-black">{% trans 'Are you sure you want to sign out?' %}</p>
+  <p class="text-white small-text-shadow-black">{% trans 'Are you sure you want to sign out?' %}</p>
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <a class="btn btn-outline-teal rounded-1 small-text-shadow-black" href="{% url 'home' %}">Cancel</a>
-  <button class="btn btn-teal rounded-1 text-uppercase small-text-shadow-black" type="submit">{% trans 'Sign Out' %}</button>
-</form>
+  <form method="post" action="{% url 'account_logout' %}">
+    {% csrf_token %}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <a class="btn btn-outline-teal rounded-1 small-text-shadow-black" href="{% url 'home' %}">Cancel</a>
+    <button class="btn btn-teal rounded-1 text-uppercase small-text-shadow-black"
+      type="submit">{% trans 'Sign Out' %}</button>
+  </form>
 </div>
-</div>
+<div class="small-info-padding-20"></div>
 
 
 {% endblock %}
