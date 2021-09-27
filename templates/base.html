@@ -48,14 +48,11 @@
     <script src="https://js.stripe.com/v3/"></script>
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" sizes="16x16" href="{% static 'favicon-16x16/favicon.ico' %}">
-    <Title>SFC Favicon Logo</Title>
     <link rel="icon" type="image/x-icon" sizes="32x32" href="{% static 'favicon-32x32/favicon.ico' %}">
-    <Title>SFC Favicon Logo</Title>
     {% endblock %}
 
     {% block extra_js %}
     {% endblock %}
-
     <title>Spartan Fitness Club {% block extra_title %}{% endblock %}</title>
 </head>
 
@@ -88,7 +85,7 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
+                        <a class="text-black nav-link" href="#" id="user-options-1" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user-circle fa-lg"></i></div>
@@ -96,7 +93,7 @@
                             </div>
                         </a>
                         <!-- Permissions for displaying if user is a superuser or authenticated -->
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options-1">
                             {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
                             <a href="{% url 'add_product' %}" class="dropdown-item">Product Mgmt</a>
@@ -174,10 +171,52 @@
     <!-- Pulls in additional block content -->
     {% block content %}
     {% endblock %}
-
+    <!-- Three icon footer with auto populated mailto link -->
+    <footer class="footer-top-border mt-3 pt-3 background-black">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 text-center">
+                    <!-- Footer Header -->
+                    <h2 class="header-logo-font small-text-shadow-black text-white">SPARTAN FITNESS CLUB</h2>
+                    <!-- Social Medai Icon Links -->
+                    <div class="align-icons pt-2">
+                        <div class="ml-5 mr-5 icon-display"><a target="_blank"
+                                class="footer-icon-color footer-icon-size" href="https://www.facebook.com/"><i
+                                    class="fab fa-facebook-square icon-hover"></i></a>
+                        </div>
+                        <div class="ml-5 mr-5 icon-display"><a target="_blank"
+                                class="footer-icon-color footer-icon-size" href="https://twitter.com/"><i
+                                    class="fab fa-twitter-square icon-hover"></i></a>
+                        </div>
+                        <div class="ml-5 mr-5 icon-display"><a target="_blank"
+                                class="footer-icon-color footer-icon-size" href="https://www.instagram.com/"><i
+                                    class="fab fa-instagram-square icon-hover"></i></a>
+                        </div>
+                    </div>
+                    <!-- mailto auto populated email link -->
+                    <p class="pt-3">
+                        <a class="contact-text"
+                            href="mailto:info-sfc@gmail.com?subject=General-Info&body=Please_Leave_Enquiry_Below">Contact
+                            Us<i class="fas fa-envelope pl-2"></i></a>
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <!-- De-emphasised copyright text with auto update year -->
+                <div class="col-md-12 text-center">
+                    <p class="text-white de-emphasise">
+                        Spartan Fitness Club©<script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
     {% block postloadjs %}
     <!-- JS to display the toast messages -->
-    <script type="text/javascript">
+    <!-- Have removed the type attribute as the HTML checker deems it not necessary -->
+    <script> // type="text/javascript"
         $('.toast').toast('show');
     </script>
     {% endblock %}

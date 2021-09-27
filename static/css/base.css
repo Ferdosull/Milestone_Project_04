@@ -50,6 +50,60 @@ body {
     color: #aab7c4;
 }
 
+/* - Footer styling CSS - */
+footer {
+    font-family: 'Rubik', sans-serif;
+}
+
+.footer-icon-size {
+    font-size: 2.5rem;
+}
+
+.no-bullets {
+    list-style-type: none;
+  }
+
+.background-black {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.icon-hover {
+    transition: 0.1s;
+    transition-property: color, transform;
+}
+
+.icon-hover:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.footer-top-border {
+    border-top: 3px solid rgba(7, 238, 219, 0.336);
+}
+
+.align-icons {
+    text-align:center;
+}
+
+.icon-display {
+    display: inline-block;
+}
+
+.footer-icon-color {
+    color: rgba(8, 196, 180, 0.541);
+}
+
+.contact-text {
+    color: white !important;
+    font-size: 0.8rem;
+}
+
+.contact-text:hover,
+.contact-text:active,
+.contact-text:focus {
+    color: rgba(8, 196, 180, 0.541) !important;
+}
+
 /* - Main Display Header & Navbar Styling CSS - */
 .header-logo-font {
     font-family: 'Aclonica', sans-serif;
@@ -443,6 +497,7 @@ a.category-badge > span.badge:hover {
     position: fixed;
     bottom: 10px;
     right: 10px;
+    z-index: 99999999998;
 }
 
 .btt-link,
@@ -569,6 +624,10 @@ a.category-badge > span.badge:hover {
 
     .header-container {
         padding-top: 164px;
+    }
+
+    .small-info-padding {
+        padding-bottom: 20rem !important;
     }
 }
 
