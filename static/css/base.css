@@ -104,6 +104,10 @@ footer {
     color: rgba(8, 196, 180, 0.541) !important;
 }
 
+.de-emphasise {
+    font-size: 0.8rem;
+}
+
 /* - Main Display Header & Navbar Styling CSS - */
 .header-logo-font {
     font-family: 'Aclonica', sans-serif;
@@ -293,10 +297,6 @@ label {
 
 .text-padding-right {
     padding-right: 0.6rem;
-}
-
-.de-emphasise {
-    font-size: 0.8rem;
 }
 
 .all-text-padding {
