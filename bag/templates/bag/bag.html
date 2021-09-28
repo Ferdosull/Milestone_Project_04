@@ -167,7 +167,6 @@
                     <i class="fas fa-chevron-left"></i>
                 </span>
                 <span class="text-uppercase text-white text-shadow-black">Keep Shopping</span>
-                <div class="small-info-padding-20"></div>
             </a>
             {% endif %}
             <!-- Medium & large device configuration End -->
@@ -186,7 +185,8 @@
 {{ block.super }}
 <!-- Loading the additional static quantity_input_script.html with js scripting inside -->
 {% include 'products/includes/quantity_input_script.html' %}
-<script> // type="text/javascript"
+<script>
+    // type="text/javascript"
     // Update quantity on click
     $('.update-link').click(function (e) {
         var form = $(this).prev('.update-form');

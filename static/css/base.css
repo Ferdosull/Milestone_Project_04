@@ -53,6 +53,7 @@ body {
 /* - Footer styling CSS - */
 footer {
     font-family: 'Rubik', sans-serif;
+    clear:both;
 }
 
 .footer-icon-size {

@@ -29,3 +29,53 @@
     </div>
 </div>
 {% endblock %}
+
+{% block page_footer %}
+<div class="footer-top-border mt-3 pt-3 background-black">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <!-- Footer Header -->
+                <h2 class="header-logo-font small-text-shadow-black text-white">SPARTAN FITNESS CLUB</h2>
+                <!-- Social Medai Icon Links -->
+                <div class="align-icons pt-2">
+                    <div class="ml-3 mr-3 icon-display"><a target="_blank" rel="noopener"
+                            class="footer-icon-color footer-icon-size" href="https://www.facebook.com/"><i
+                                class="fab fa-facebook-square icon-hover"></i>
+                            <p class="text-white pl-1 de-emphasise">FaceBook</p>
+                        </a>
+                    </div>
+                    <div class="ml-3 mr-3 icon-display"><a target="_blank" rel="noopener"
+                            class="footer-icon-color footer-icon-size" href="https://twitter.com/"><i
+                                class="fab fa-twitter-square icon-hover"></i>
+                            <p class="text-white pl-1 de-emphasise">Twitter</p>
+                        </a>
+                    </div>
+                    <div class="ml-3 mr-3 icon-display"><a target="_blank" rel="noopener"
+                            class="footer-icon-color footer-icon-size" href="https://www.instagram.com/"><i
+                                class="fab fa-instagram-square icon-hover"></i>
+                            <p class="text-white pl-1 de-emphasise">Instagram</p>
+                        </a>
+                    </div>
+                </div>
+                <!-- mailto auto populated email link -->
+                <p class="pt-3">
+                    <a class="contact-text"
+                        href="mailto:info-sfc@gmail.com?subject=General-Info&body=Please_Leave_Enquiry_Below">Contact
+                        Us<i class="fas fa-envelope pl-2"></i></a>
+                </p>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <!-- De-emphasised copyright text with auto update year -->
+            <div class="col-md-12 text-center">
+                <p class="text-white de-emphasise">
+                    Spartan Fitness Club©<script>
+                        document.write(new Date().getFullYear());
+                    </script> All rights reserved
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
