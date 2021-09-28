@@ -34,8 +34,8 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/e5e9aacbdc.js" crossorigin="anonymous"></script>
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Popper JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -44,8 +44,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
-    <!-- Stripe -->
-    <script src="https://js.stripe.com/v3/"></script>
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" sizes="16x16" href="{% static 'favicon-16x16/favicon.ico' %}">
     <link rel="icon" type="image/x-icon" sizes="32x32" href="{% static 'favicon-32x32/favicon.ico' %}">
@@ -53,6 +51,8 @@
 
     {% block extra_js %}
     {% endblock %}
+    <meta name="description" content="Spartan Fitness Clubs e-commerce website for selling its products, 
+        gym memberships and tailored fitness programs to all who wish to join the community">
     <title>Spartan Fitness Club {% block extra_title %}{% endblock %}</title>
 </head>
 
@@ -180,17 +180,17 @@
                     <h2 class="header-logo-font small-text-shadow-black text-white">SPARTAN FITNESS CLUB</h2>
                     <!-- Social Medai Icon Links -->
                     <div class="align-icons pt-2">
-                        <div class="ml-5 mr-5 icon-display"><a target="_blank"
-                                class="footer-icon-color footer-icon-size" href="https://www.facebook.com/"><i
-                                    class="fab fa-facebook-square icon-hover"></i></a>
+                        <div class="ml-5 mr-5 icon-display"><a target="_blank" rel="noopener"
+                                class="footer-icon-color footer-icon-size" href="https://www.facebook.com/" alt="Link to access SFCs Facebook Page"><i
+                                    class="fab fa-facebook-square icon-hover"></i>FaceBook</a>
                         </div>
-                        <div class="ml-5 mr-5 icon-display"><a target="_blank"
-                                class="footer-icon-color footer-icon-size" href="https://twitter.com/"><i
-                                    class="fab fa-twitter-square icon-hover"></i></a>
+                        <div class="ml-5 mr-5 icon-display"><a target="_blank" rel="noopener"
+                                class="footer-icon-color footer-icon-size" href="https://twitter.com/" alt="Link to access SFCs Twitter Page"><i
+                                    class="fab fa-twitter-square icon-hover"></i>Twitter</a>
                         </div>
-                        <div class="ml-5 mr-5 icon-display"><a target="_blank"
-                                class="footer-icon-color footer-icon-size" href="https://www.instagram.com/"><i
-                                    class="fab fa-instagram-square icon-hover"></i></a>
+                        <div class="ml-5 mr-5 icon-display"><a target="_blank" rel="noopener"
+                                class="footer-icon-color footer-icon-size" href="https://www.instagram.com/" alt="Link to access SFCs Instagram Page"><i
+                                    class="fab fa-instagram-square icon-hover"></i>Instagram</a>
                         </div>
                     </div>
                     <!-- mailto auto populated email link -->
@@ -216,9 +216,12 @@
     {% block postloadjs %}
     <!-- JS to display the toast messages -->
     <!-- Have removed the type attribute as the HTML checker deems it not necessary -->
-    <script> // type="text/javascript"
+    <script>
+        // type="text/javascript"
         $('.toast').toast('show');
     </script>
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
 
