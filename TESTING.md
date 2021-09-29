@@ -218,19 +218,9 @@ The following are descriptions of the error pages in the project and what they d
 These error pages will show up in the finished project when DEBUG is changed to FALSE in the main apps settings.py file.
 <br><br/>
 
-## 403 Error Page
-
-* Displays when a 403 - user cookies are not enabled error occurs.
-* This tells the user that the navigation could not continue and advises the user to enable their cookies.
-* Provides the user with a return home button/link.
-
-### The Return Home Button:
-
-* Changes color on hover (darkens).
-* If clicked, returns the user to the home page.
-<br><br/>
-
 ## 404 Error Page
+
+![](Testing_User_Stories_Images/404-Error.png)
 
 * Displays when a 404 - page not found error occurs.
 * This tells the user that the page they are looking for could not be found.
@@ -243,6 +233,9 @@ These error pages will show up in the finished project when DEBUG is changed to 
 <br><br/>
 
 ## 500 Error Page
+
+![](Testing_User_Stories_Images/500-Error.png)
+
 * Displays when a 500 – internal server connection error occurs.
 * Tells the user that there’s an internal server connection error.
 * Provides the user with a return home button/link.
