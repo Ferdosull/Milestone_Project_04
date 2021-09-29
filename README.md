@@ -1,104 +1,108 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Milestone Project 04 
 
-Welcome Ferdosull,
+### Spartan Fitness Club E-Commerce Store<br/><br/>
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. The last update to this file was: **July 2, 2021**
+## Table of contents
+1. [Introduction](#intro)
+2. [Responsive Design](#responsive_design)
+3. [My Project Description and Design](#project_description)
+    1. [Wire Frames](#wire_frame)
+    2. [Pop up Delete Modals](#pop_modal)
+    3. [Nav Bar](#nav_bar)
+    4. [Hero Image](#hero_image)
+    5. [Header & Description Text](#header_description)
+    6. [Page Links and Button Navigation](#page_links)
+    7. [flash_messages](#flash_messages)
+    8. [Search Products](#search_recipes)
+    9. [Default Product Image](#default_recipe)
+    10. [Footer](#footer)
+4. [Utilising the 5 Planes of UX Design](#ux_design)
+    1. [The Strategy Plane](#strategy_plane)
+    2. [The Scope Plane](#scope_plane)
+    3. [The Structure Plane](#structure_plane)
+    4. [The Skeleton Plane](#skeleton_plane)
+    5. [The Surface Plane](#surface_plane)
+5. [Typography](#typography)
+6. [User Stories](#user_stories)
+    1. [External pdf User Stories Document Link](#external_document)
+7. [Bugs and Fixes](#bug_fixes)
+8. [References and Credits Section](#references_and_credits)
+    1. [Code](#code)
+    2. [Media](#media)
+9. [User Testing](#testing)
+    1. [External pdf Manual Testing Document Link](#testing_procedure)
+10. [Future "Nice to Have" Additions to The Website](#additions)
+11. [Deployment of Project](#project_deployment)
+    1. [Creating a New Project](#new_project)
+    2. [Commands Utilised Throughout The Project After Changes](#commands)
+    3. [How to Deploy My Milestone\_Project\_04 on Heroku](#how_to_deploy)
+    4. [How to Download, View and Edit and Run this project locally](#how_to_download)
+12. [My Data Base Layout and Structure](#db_structure)<br/><br/>
+13. [Previous Assessment Comments and How I Have Addressed Them](#previous_comments)<br/><br/>
+14. [Acknowledgements](#acknowledgements)<br/><br/>
 
-## Gitpod Reminders
+## Introduction <a name="intro"></a>
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+My Milestone Project 4 was envisioned by me and created based on the knowledge gained so far from this course. 
+I have taken the fundamentals that I have learned from the course and applied them to this website with style and format changes. 
+I have created Python, Jscript and jQuery functions where required to manipulate data, undertake logic and enable the end result back to the user.
+I hope that the outcome of my works has translated into a web application UI, that shows and facilitates my understanding of the Django framework learned throughout this development module.
+I feel that additions to the site can be made very easily by adding new models to the postgres database and tailoring the files within the app structure itself to suit. 
+My goal was to create an application that visually appears accessible and familiar to sports and gym goers.
+I also wanted to make it responsive and easy to navigate by using tailored css and css bootstrap classes.
+As well as the course materials, there have been some additional code examples which I have searched for online and utilised.
+These additions have been highlighted and referenced later on in this document (references and credits section).
+As well as these additions I have received excellent feedback from my mentor Maranatha Ilesanmi throughout this course.
+For the previous project, Maranatha has re-capped and explained the reasons for the comments I received. He has given me great advice again on how to improve so that I can attain a higher mark.
+I have also added a [section](#previous_comments) in this README file, where I explain what has been implemented in this project to counter act the reasons for falling down in the last project.
 
-`python3 -m http.server`
+## Responsive Design <a name="responsive_design"></a>
 
-A blue button should appear to click: _Make Public_,
+As can be seen in the screenshot below, media queries and Bootstrap classes have been used to ensure that the website is completely responsive across Desktop and Mobile devices.
 
-Another blue button should appear to click: _Open Browser_.
+![](media/readme_images/README001.png)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+View the deployed project here:[ SFC ](https://ferdia-milestone-project-04.herokuapp.com/)<br/><br/>
 
-A blue button should appear to click: _Make Public_,
+## My Project Description and Design <a name="project_description"></a>
 
-Another blue button should appear to click: _Open Browser_.
+The Spartan Fitness Club website is a full-stack responsive website which utilises Python, JQuery & javasript methods and functions to carry out CRUD functionality using the Django framework,
+a Heroku postgres database and AWS static and media file storage. 
+Please see initial envisioned wireframes for desktop and mobile devices (before project start) and actual screenshots of the finished website in the sections that follow:
+<br/><br/>
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Wire Frames <a name="wire_frame"></a>
 
-To log into the Heroku toolbelt CLI:
+This time around, I found the wire-frames extremely helpful for planning the structure and navigation throughout the site. 
+The main langing page is the centre hub for all users until logged in. From here all non-admin, and non-registered user options are available through the navbar.
+There are additional options available if logged in as an admin, or a registered user which will be discussed further in the document.
+A number of redirects are used and placed in known locations that users that would be familiar with in keeping with good practise.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+Please see below links to individual Mobile & Desktop views:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+[Home Page](media/readme_images/Main_Page.png)
 
-------
+[Products](media/readme_images/All_Products_Page.png)
 
-## Release History
+[Product Detail](media/readme_images/Product_Detail.png)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+[Add/Edit Product](media/readme_images/Add_Edit_Product.png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+[Blog](media/readme_images/All_Blogs.png)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+[Blog Detail](media/readme_images/Blog_Detail.png)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+[Add/Edit Blog](media/readme_images/Add_Edit_Blog.png)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+[Profile](media/readme_images/Profile.png)
+<br/><br/>
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Pop up Delete Modals <a name="pop_modal"></a>
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+![](media/readme_images/README002.png)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+There are 3 pop up modals used on this application. All three modals are used in conjunction with the delete options for products, blog posts, and comments.
+It is a way of protecting against accidental deletion of each item by providing the user with a way of opting out if delete was pressed accidentally, 
+and a way of giving the user a second chance to re-consider if they had decided to delete the item but now have changed their mind.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding! Testing
+<br/><br/>
