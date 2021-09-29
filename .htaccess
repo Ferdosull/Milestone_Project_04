@@ -1,1 +1,1 @@
-ErrorDocument 403 /templates/403.html
+ErrorDocument 403 templates/403.html

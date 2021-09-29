@@ -21,8 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # Debug = False for completed and deployed app
-DEBUG = 'DEVELOPMENT' in os.environ
-# DEBUG = False
+# DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = False
 
 ALLOWED_HOSTS = ['ferdia-milestone-project-04.herokuapp.com', 'localhost']
 
