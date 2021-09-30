@@ -11,7 +11,7 @@
     3. [Nav Bar](#nav_bar)
     4. [Hero Image](#hero_image)
     5. [Page Links and Button Navigation](#page_links)
-    6. [flash messages](#flash_messages)
+    6. [Flash messages](#flash_messages)
     7. [Search Products](#search_products)
     8. [No Image Default](#default_Image)
     9. [Footer](#footer)
@@ -29,12 +29,11 @@
     1. [Technologies Used In The Project](#technologies_used)
     2. [Media](#media)
 9. [Future "Nice to Have" Additions to The Website](#additions)
-10. [Deployment of Project](#project_deployment)
-    1. [Creating a New Project](#new_project)
-    2. [Commands Utilised Throughout The Project After Changes](#commands)
-    3. [How to Deploy My Milestone\_Project\_04 on Heroku](#how_to_deploy)
-    4. [How to Download, View and Edit and Run this project locally](#how_to_download)
-11. [My Data Base Layout and Structure](#db_structure)
+10. [My Data Base Layout and Structure](#db_structure)
+11. [Deployment of Project](#project_deployment)
+    1. [Heroku Deployment](#heroku_deployment)
+    2. [Amazon AWS](#amazon_aws)
+    3. [Local Deployment](#local_deployment)
 12. [Previous Assessment Comments and How I Have Addressed Them](#previous_comments)
 13. [Acknowledgements](#acknowledgements)
 <br/><br/>
@@ -436,19 +435,392 @@ I was initially inspired by [ Sports Directs ](https://www.sportsdirect.com/) we
 The finished product looks a lot different from the Sports Direct website, but I feel it ticks all the boxes and remains true to the initial wireframes and colour scheme.
 <br/><br/>
 
+## Future "Nice to Have" Additions to The Website <a name="additions"></a>
 
+At project review meetings with my mentor some ideas for the future were discussed but were beyond my means in terms of time to implement.
+
+I feel that these further implementations would bring more professionalism to the project as well as further UX familiarity for the user.
+
+(1) Change the comments layout in the blog section. At present, the comments are stored from top to bottom (newest comment last). This suits the current setup as the admin can respond to a users comments and it will appear below, conforming to most social media messaging.
+I would like to change this so that the comments appear as newest item first, then when the admin replies, it is directly to the specific message where the question was asked, creating a branch, like what can be seen on Facebook posts.
+
+(2) The addition of pagination for when the product list grows. At present there are only 16 products so it is not essential currently. It is however something that I would implement in the future editions to ensure the site can grow and not restrict the user.
+
+(3) A wishlist section so that users could select items that they would wish to purchase at a further date. The wish app contents would be editable like the checkout but this information would be saved alongside the users profile information, to be recalled at a future date.
+
+(4) At present, the ratings are manually entered based on the product suppliers ratings. In the future I would like to change this to apply a system whereby the user can give ratings to the products they have purchased.
+<br/><br/>
+
+## CLI Commands Utilised Throughout The Project <a name="commands"></a>
+
+“python3 manage.py runserver“: This command is used to start the manage.py file from the GitPod IDE on the port 8000.
+
+“CTRL + c“: This command is used to exit the manage.py file from the GitPod port 8000.
+
+“pip3 freeze > requirements.txt“: This command is used create, or amend a requirements.txt file containing all dependencies for the project.
+
+“echo web: python3 manage.py > Procfile“: This command was used to create the Proc file virtual file system.
+
+“git add /specified file folder/specified file/file extension“: This command is used to move files to the staging area before carrying out a commit. 
+
+“git commit -m \*commit message summarising the updates\*”: This command is used to commit the changes made to any files which had been previously added with “git add”. 
+
+“git push”: This command is used to push git commit changes to the GitHub hosting pages and Heroku Main and so that the repo is updated and the Heroku app can be viewed on a browser with the latest updates.
+<br/><br/>
 
 ## My Data Base Layout and Structure <a name="db_structure"></a>
 
 Please see below, a line diagram created with [Draw.io](https://app.diagrams.net/) which depicts my Database scheme for the categories and associated products.
 
+As the actual products had not been finalised at the introduction of the fixtures to the project "Lorem Ipsum" text was used to get everything up and running. Afterwards, once the "Edit Products" function was implemented, I was able to change the text associated with the items to reflect the finished products.
+
 I have placed the first category "Mens Activewear" and the first product "Mens Workout Set 1" at the top of the Schema as an example.
 
 ![](media/readme_images/SCHEMA.png)
+<br/><br/>
+
+## Deployment of Project <a name="project_deployment"></a>
+
+### Heroku <a name="heroku_deployment"></a>
+
+To deploy the completed project to Heroku please use the following steps:
+
+**Navigate to Heroku and create an app**
+
+- Click the "New" button.
+- Click "Create a New App".
+- Give the app a name and chose your region.
+- Selected "Create App".
+
+**Setup A Postgres Database In Heroku**
+
+- Search for Postgres in the app resources section.
+- Add to project choosing the free plan.
+- To utilise Postgres on Heroku you need to install 2 packages in your IDE.
+- Package 1 - dj_database_url
+- Package 2 - psycopg2
+
+**In The Gitpod IDE**
+- Type the following into your workspace to install the required packages and press enter. 
+
+        gitpod /workspace/ <project-name> $ pip3 install dj_database_url
+    
+        gitpod /workspace/ <project-name> $ pip3 install psycopg2_binary
+
+
+- Once installed, add them to the requirements.txt file by using the following command:
+
+        gitpod /workspace/ <project-name> $ pip3 freeze > requirements.txt
+
+- In the main app's settings.py, imported dj_database_url as depicted below:
+
+![](media/readme_images/DJDB.png)
+
+- Commented out the current database settings.
+- Replace with the DATABASES settings which points to your postgres database url.
+
+        DATABASES = {
+            'default': dj_database_url.parse('DATABASE_URL')
+        }
+
+- For info, you can find your database URL in your app config var settings. Please see a screen shot below of mine indicating where it can be found:
+
+Navigate to the following address: https://dashboard.heroku.com/apps/<'your-app-name'>/settings
+
+![](media/readme_images/DJDB_Config_Vars.png)
+
+- Next, migrate your models to the new database with a plan flag first to see your execution.
+- If all appears good, follow up with the real migration.
+
+        gitpod /workspace/ <project-name> $ python3 manage.py migrate --plan
+        gitpod /workspace/ <project-name> $ python3 manage.py migrate
+
+- Use the json fixtures to add the categories and products into the new postgres database.
+- Make sure to load the categories before loading the products. The load order is important.
+
+        gitpod /workspace/ <project-name> $ python3 manage.py loaddata categories
+        gitpod /workspace/ <project-name> $ python3 manage.py loaddata products
+
+- Proceed to creating a superuser for your django app by typing:
+
+        gitpod /workspace/ <project-name> $ python3 manage.py createsuperuser
+
+        Fill in the appropriate fields for: Username, Email Address and Password.
+
+- Create an if-else statement settings.py configured to use Postgres if the DATABASE_URL variable is present, or else use the IDE db.sqlite3 database. Please see image below:
+
+![](media/readme_images/DBS.png)
+
+- The Postgres database setup is now complete. Ensure no sensitive date remains in your settings.py and commit your changes.
+
+**Install Gunicorn**
+- For your app to function you need to install the gunicorn webserver.
+- To install, type the following into the IDE command line:
+
+        gitpod /workspace/ <project-name> $ pip3 install Gunicorn
+
+- Create a Procfile to give Heroku instruction on how to execute the app.
+
+        gitpod /workspace/ <project-name> $ touch Procfile
+
+- In the Procfile insert the following code.
+
+    web: gunicorn spartan_fitness_club.wsgi:application
+
+**Heroku From The Command Line.**
+- Log into Heroku from the terminal using the following command:
+
+        gitpod /workspace/ <project-name> $ heroku login -i
+
+- Temporarily disable the static file collection by setting the following configs.
+
+        gitpod /workspace/ <project-name> $ heroku config:set DISABLE_COLLECTSTATIC=1 --app <app name>
+        Use the --app command to target your specific app.
+
+- In your main app settings.py, add the Heroku app into allowed hosts, and add localhost to ensure you maintain development running through Gitpod. Please see screenshot below from my project for example:
+
+![](media/readme_images/ALLOWED_HOSTS.png)
+    
+- Committed these changes to Github.
+- Proceed to setting up pushing to Heroku by using the following command in the CLI terminal:
+
+        heroku git:remote -a <your-app-name>.herokuapp.com
+
+- Push the project to Heroku Main by using the following command:
+
+        gitpod /workspace/ <project-name> $ git push heroku main
+
+- Heroku will start to build your app. The progress of the build can be seen if you navigate to Heroku.
+
+**Heroku Connect To Github for Automatic Deployment**
+
+- Navigate to your Heroku app.
+- Connect your app to GitHub by opening the Deploy configuration section.
+- Search for your repository by typing in its name in the search field.
+- When found, connect it and enable Automatic Deploys.
+- Any pushes made to the GitHub repo from your IDE will be automatically pushed to Heroku also.
+
+### Amazon AWS <a name="amazon_aws"></a>
+
+- Amazon AWS is used to store your static and media files.
+- Sign-up & create an AWS account.
+
+**Create a bucket**
+
+- Create an S3 bucket
+    - Search for S3 and click to get started.
+    - Click "Create bucket" button.
+    - Name the bucket (relate it to your project) and select your region.
+    - Ensure public access is allowed and acknowledge this in the check box provided.
+    - Click "create bucket".
+    
+- Edit Bucket settings.
+    - In Bucket properties.
+    - Enable static website hosting.
+    - Add index.html and error.html.
+    - Save changes.
+- Permissions
+    - Click on buckets Permissions.
+    - Paste the following Cors config as provided by Code Institute during tutorials.
+
+                [
+                    {
+                        "AllowedHeaders": [
+                            "Authorization"
+                        ],
+                        "AllowedMethods": [
+                            "GET"
+                        ],
+                        "AllowedOrigins": [
+                            "*"
+                        ],
+                        "ExposeHeaders": []
+                    }
+                    ]
+
+- Inside bucket policy tab, click "Generate policy".
+- Navigate back to "Add Policy" section.
+- Select the S3 bucket policy.
+- Add * to the principal field to select all principals
+- Set action to "get object".
+- Copy & Paste your ARN from the previous page.
+- Click, "Add Statement".
+- Click, "Generate Policy".
+- Copy and paste your created policy into the bucket policy section.
+- Add /* onto the end of the resources key.
+- Save changes.
+- In the Access Control list tab, enable the list objects permissions to "Everyone".
+    
+**Create a User.**
+
+- Use Amazon service IAM to create a user.
+- Search for IAM from the dashboard and select it.
+     
+- You need to create a group to place your user.
+- Click "Create a new group" and name it (relative to your project).
+- Click through to the end and save the group.
+- In your group click, policy followed by create policy.
+- Select the JSON tab and then import "managed policies".
+- Search S3 and select AmazonS3FullAccess and import.
+- In the resources section paste in your arn from previous setup.
+- click through it to review the policy info.
+- Fill in name and description and then click "Generate policy".
+- In your group, click permissions and now attach the newly generated policy visible in the list.
+    
+- Create a User.
+- Select "Users" and then click, "Add User".
+- Create a user with a name specific to your project and select "programmatic access".
+- click "Next".
+- Select the group to add your new user to.
+- Follow through to the end and click "Create User".
+- Download the .csv file which contains your AWS access keys and keep it stored in a safe location.
+
+**Connecting AWS with Django**
+    
+- Now that AWS has been set up for your static and media files, you need to connect it to Django.
+- In order to do this you are required to install two more packages;
+    - boto 3
+    - Django storages
+
+- Install these packages using the following commands in the CLI from Gitpod.
+
+        gitpod /workspace/ <project-name> $ pip3 install boto3
+
+        gitpod /workspace/ <project-name> $ pip3 install django-storages
+
+- Then add to your requirements by freezing requirements.txt.
+
+        gitpod /workspace/ <project-name> $ pip3 freeze > requirements.txt
+
+- You now add storages into your installed apps in your main apps settings.py please see screenshot below from my project:
+
+![](media/readme_images/STORAGES.png)
+
+- You then add the following settings to your main apps settings.py
+- You create an environmental variable to only run this code when on Heroku. "USE_AWS"
+
+Please see screenshot below of my project where the AWS environmental variable is set to "True":
+
+![](media/readme_images/USE_AWS.png)
+
+Please see screenshot below from my project of my main apps settings.py as an example where this code has been implemented:
+
+![](media/readme_images/AWS_SETUP.png)
+
+
+- In the Heroku app, click "Settings" and "Reveal config vars".
+- Set up the required environmental variables.
+- Create a custom_storages.py file to tell Django that in production you want to use S3 for your static and media files.
+- Import Settings, and S3Boto3Storage into this file at the top.
+- Set up your new classes as seen in the screenshot below:
+
+![](media/readme_images/CUSTOM_STORAGES.png)
+
+- Once complete, Push to GitHub which will trigger an automatic deploy to Heroku.
+
+**Add Your Media To AWS S3**
+  
+- In your S3 bucket, create a new folder called "media".
+- Select upload and add your image files, or drag and drop them onto the defines area.
+- Select to "Grant public access".
+- Upload the files and save.
+- Open your Heroku app from inside Heroku and all should be fine.
+
+### Local Deployment <a name="local_deployment"></a>
+
+- To set the project up locally you can follow these steps.
+    
+- Navigate to the following link:[SFC E-Commerce Github](https://github.com/Ferdosull/Milestone_Project_04) and download a copy of my repository from Github using the Download Zip option depicted in the screenshot below:
+
+![](media/readme_images/Download_Zip.png)
+    
+- Extract the zip file to your repo.
+
+- Alternatively, you can clone it to your repository using the following command.
+
+        git clone https://github.com/Ferdosull/Milestone_Project-04.git
+
+    
+- Once the repository is created, download the requirements by running the following command.
+
+        pip install -r requirements.txt
+    
+- Set up the following environment variables to use the full functionality of the site.
+
+- DANGO_SECRET_KEY = your secret key.
+- STRIPE_PUBLIC_KEY = your stripe public key.
+- STRIPE_SECRET_KEY = your stripe secret key.
+- STRIPE_WEBHOOK_SECRET = your stripe webhook secret.
+- IN_DEVELOPMENT = True
+
+- Your specific stripe variables can be found on your stripe dashboard.
+- You can generate a Django secret key at this link: [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
+    
+- Migrate the database models for your database.
+    - 
+- Check first
+
+        python manage.py makemigrations --dry-run
+
+-  Make migrations.
+
+        python manage.py makemigrations
+
+- Check the migration plan
+
+        python manage.py migrate --plan
+
+- Migrate
+
+        python manage.py migrate
+
+- Create your superuser to access the admin section.
+
+        python manage.py createsuperuser
+
+        - Following the prompts.
+
+- dAfter these steps have been completed, you can then run the project by typing the following command into your CLI.
+
+        python manage.py runserver
+<br/><br/>
 
 ## Previous Assessment Comments and How I Have Addressed Them <a name="previous_comments"></a>
 
-To Be Completed.
+As part of my first mentor session for Milestone Project 4, Maranatha took me through the comments received from the Milestone Project 3 assessment and advised me what to do in order to make sure I dont fall down for the same reasons this time around.
+
+I would like to thank the assessor for their feedback, Please see the comments below and the actions taken to rectify & protect against these same failings in this project.
+
+1. LO4 additional comments - “Try adding Docstrings as well."
+
+In this project I have implemented doc strings in python files where I felt a further description was required.
+
+2. Merit Criteria additional comments - "Data schema and relationships aren't clearly laid out in the documentation."
+
+In this project I have created a line diagram which depicts the "Product", "Category" relationships that are present in my project. Please click on the link to view: [My Data Base Layout and Structure](#db_structure)
+
+3. Merit Criteria additional comments - "Deployment process documented but could be more elaborate for another user to deploy the project on a local system"
+
+I have included local system deployment on this README also.
+
+4. Merit Criteria additional comments - "Try to be consistent with the button colours"
+
+I have been concious of this comment throughout the creation of this project and I have tried to remain consistent in my approach. 
+Maranatha has also provided advice for removing some of the buttons that are not required and replaing them with href, de-emphasised text, so as not to mislead the user into thinking they are the primary function.
+
+5. Merit Criteria additional comments - "Try providing separate template files for header, footer etc."
+
+This has been achieved in this project with separate includes in the base.html template.
+
+6. Merit Criteria addittional comments - "Try adding configurations in particular to this deployment, like the environment variables to configure."
+
+In the deployment section of this project I have added a section which describes what environment variables are required for this SFC E-commerce store.
+
+7. “Overall the website is functional and works. As stated earlier, there are a few areas for scope of improvement. Apart from that try to focus on defensive design as well as creating dynamic layouts based on screen resolutions using media queries or Bootstrap grids.“
+
+I feel I have successfully implemented defensive design as part of the brief this time around and I also feel that more time and effort has been given to creating dynamic layouts. Media queries & bootstrap grids have been used in this project.
+
+Again thank you to the assessor for their feedback on Milestone Project 3.
 <br/><br/>
 
 ## Acknowledgements <a name="acknowledgements"></a>
