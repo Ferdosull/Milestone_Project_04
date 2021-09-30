@@ -2,6 +2,24 @@
 
 ### Spartan Fitness Club E-Commerce Store<br/><br/>
 
+### Info for the Assessor
+
+I have included the admin credentials in the comments section at project submission.
+
+I have also included a folder which contains a test image if you wish to use it during testing, and a USER.txt file which has an addittional standard username and password if you wish to use it during testing, as well as creating your own.
+
+[Test Image](assessor_folder/Test.jpg)
+
+[Test User](assessor_folder/USER.txt)
+  
+For Stripe functionality at checkout I have used the following card details:
+
+        - card number : 4242 4242 4242 4242
+        - date : 04/24
+        - CVV number : 242
+        - ZIP : 42424
+
+
 ## Table of contents
 1. [Introduction](#intro)
 2. [Responsive Design](#responsive_design)
@@ -825,6 +843,10 @@ Again thank you to the assessor for their feedback on Milestone Project 3.
 
 ## Acknowledgements <a name="acknowledgements"></a>
 
-I'd like to say a special thank you to my mentor Maranatha Ilesanmi. Maranatha has provided excellent constructive feedback at all of our project review meetings.
-I have made many great changes to my projects based on Maranatha's wisdom and huge wealth of knowledge in the industry standards.
+I'd like to thank the Code Institue for providing a very in-depth, enjoyable and rewarding course. I have taken in huge knowledge over the last year and I am looking forward to putting it to good use in the near future.
+
+I'd also like to thank fellow students, Brian Whelan and Sharon B who's projects gave me inspiration for my own.
+
+I'd also like to say a very special thank you to my mentor Maranatha Ilesanmi. Maranatha has provided excellent constructive feedback at all of our project review meetings.
+I have made many great changes to my projects based on Maranatha's wisdom and huge wealth of knowledge in industry standards.
 Once again I have learned alot from him and I am thankful for all the constructive feedback given during our sessions.
