@@ -46,6 +46,7 @@ For Stripe functionality at checkout I have used the following card details:
 8. [References and Credits Section](#references_and_credits)
     1. [Technologies Used In The Project](#technologies_used)
     2. [Media](#media)
+    3. [Adding the Blog & Blog Comments](#blog)
 9. [Future "Nice to Have" Additions to The Website](#additions)
 10. [My Data Base Layout and Structure](#db_structure)
 11. [Deployment of Project](#project_deployment)
@@ -62,7 +63,10 @@ My Milestone Project 4 was envisioned by me and created based on the knowledge g
 I have taken the fundamentals that I have learned from the course and applied them to this website with style and format changes. 
 I have created Python, Jscript and jQuery functions where required to manipulate data, undertake logic and enable the end result back to the user.
 I hope that the outcome of my works has translated into a web application UI, that shows and facilitates my understanding of the Django framework learned throughout this development module.
-I feel that additions to the site can be made very easily by adding new models to the postgres database and tailoring the files within the app structure itself to suit. 
+
+The two additional models I have chosen to implement in my project are a Blog and a Blog Post Comment section. I am quite happy in there successful integration with the rest of the app. Please click [Here](media/readme_images/BLOG.png) to view a screeshot of one of the blogs with user commenting.
+
+I also feel that further additions to the site can be made very easily by adding more models to the postgres database and tailoring the files within the app structure itself to suit. 
 My goal was to create an application that visually appears accessible and familiar to sports and gym goers.
 I also wanted to make it responsive and easy to navigate by using tailored css and css bootstrap classes.
 As well as the course materials, there have been some additional code examples which I have searched for online and utilised.
@@ -442,6 +446,17 @@ Please see list of credits below for the owner of each photo:
 * zachary-kadolph-CoTJ4Srrl5E-unsplash – Photo by[ Zachary Kadolph ](https://unsplash.com/@zacharykadolph?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)on[ Unsplash ](https://unsplash.com/)
   
 I’d like to say a huge thank you to the photographers who provided the content above, free of charge via Unsplash, for the creation of this E-Commerce store app.
+<br/><br/>
+
+**Adding the Blog & Blog Comments** <a name="blog"></a>
+
+I chose to do a Blog and Blog comments as the two addittional required models for this project. For assistance in bring these components to life I watched a serious of tutorials on Youtube and found them very informative and the result is exactly what I hoped to achieve.
+
+The free turorial videos are provided by [CODEMY](https://codemy.com/) and the youtube channel can be found by clicking on the following link [CODEMY YOUTUBE](https://www.youtube.com/channel/UCFB0dxMudkws1q8w5NJEAmw)
+
+Here is the link for the specific video for the Blog [Blog Video](https://www.youtube.com/watch?v=B40bteAMM_M&t=8s)
+
+Here is the link for the specific video for the blog Comments [Blog Comments Video](https://www.youtube.com/watch?v=hZrlh4qU4eQ&t=488s)
 <br/><br/>
 
 **Content:**
